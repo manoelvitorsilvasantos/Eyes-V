@@ -22,3 +22,4 @@ class MYSerial:
 		else:
 			self.arduino.write('0'.encode())
 		self.arduino.flush()
+
