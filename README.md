@@ -59,6 +59,19 @@ CREATE DATABASE image_db;
 Now we will execute query to create us the table
 
 ```sql
+CREATE TABLE IF NOT EXISTS usuarios_credencial(
+	id INT NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	usuario VARCHAR(32) NOT NULL,
+	senha VARCHAR(255) NOT NULL,
+	tipo CHAR(1) NOT NULL,
+	data DATE,
+	PRIMARY KEY(id)
+);
+```
+
+```sql
 CREATE TABLE IF NOT EXISTS image(
    id INT NOT NULL AUTO_INCREMENT,
    imagem_aluno LONGBLOB NOT NULL,
@@ -77,7 +90,14 @@ CREATE TABLE IF NOT EXISTS aluno(
    PRIMARY KEY(id)
 );
 ```
-
+```sql
+INSERT INTO aluno(id, nome, phone, email)
+VALUES(1, 'Manoel Vitor', '<your_number>', '<your_email>');
+```
+```sql
+INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
+VALUES('administrador', '<your_email>', 'admin', MD5('admin'), '1', CURDATE());
+```
 Please, Look to mysql.py file and writer your credencial to connect database any difficulty.
 
 Example:
