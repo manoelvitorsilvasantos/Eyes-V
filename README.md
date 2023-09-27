@@ -92,11 +92,11 @@ CREATE TABLE IF NOT EXISTS aluno(
 ```
 ```sql
 INSERT INTO aluno(id, nome, phone, email)
-VALUES(1, 'Manoel Vitor', '(74) 99972-9815', 'manoelvitorsilvasantos@gmail.com');
+VALUES(1, 'Manoel Vitor', '<your_number>', '<your_email>');
 ```
 ```sql
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
-VALUES('administrador', 'manoelvitorsilvasantos@gmail.com', 'admin', MD5('admin'), '1', CURDATE());
+VALUES('administrador', '<your_email>', 'admin', MD5('admin'), '1', CURDATE());
 ```
 Please, Look to mysql.py file and writer your credencial to connect database any difficulty.
 
