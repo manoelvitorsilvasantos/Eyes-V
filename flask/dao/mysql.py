@@ -23,36 +23,27 @@ class DatabaseConnection:
         except Exception as e:
             print("Error:", e)
             return None
-    # save image in database
-    def save_image(self, nome, image, phone, email):
+    def login_user(self, email, password):
         try:
             with self.connection.cursor() as cursor:
-                insert_query = ("INSERT INTO image_table "
-                               "(nome_pessoa, image_pessoa, phone_pessoa, email_pessoa) "
-                               "VALUES (%s, %s, %s, %s)")
-                cursor.execute(insert_query, (nome, image, phone, email))
+                select_query = f"SELECT * FROM admins WHERE email = %s AND senha = %s"
+                cursor.execute(select_query, (email, password))
+                result =  cursor.fetchone()
+                if result:
+                    return result
+                return None
+        except Exception as e:
+            print("Error:", e)
+            raise
+    def login_save(self, nome, email, celular, senha):
+        try:
+            with self.connection.cursor() as cursor:
+                insert_query = ("INSERT INTO admins"
+                                "(nome, email, celular, senha) "
+                                "VALUES (%s, %s, %s, %s)")
+                cursor.execute(insert_query, (nome, email, celular, senha))
                 self.connection.commit()
-                print("Image saved successfully.")
-        except Exception as e:
-            print("Error:", e)
-
-    def get_all(self):
-        try:
-            with self.connection.cursor() as cursor:
-                select_query = "SELECT * FROM aluno a JOIN imagem i ON i.id_aluno = a.id"
-                cursor.execute(select_query)
-                records = cursor.fetchall()
-                return records
-        except Exception as e:
-            print("Error:", e)
-
-    def get_all_records(self):
-        try:
-            with self.connection.cursor() as cursor:
-                select_query = "SELECT * FROM image_table"
-                cursor.execute(select_query)
-                records = cursor.fetchall()
-                return records
+                print("Save with sucessfully.")
         except Exception as e:
             print("Error:", e)
 

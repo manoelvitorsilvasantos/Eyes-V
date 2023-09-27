@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="viewport=device-width,initial-scale=1.0">
+		<title>Formulário de Cadastro</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+	</head>
+	<body>
+		<div class="page">
+			<form method="POST" class="form">
+				<h3>Cadastro de Administrador APP</h3>
+				<label for="nome">Nome:</label>
+				<input type="text" name="nome" id="nome" required>
+				<label for="email">E-mail:</label>
+				<input type="email" name="email" id="email" required>
+				<label for="celular">Celular:</label>
+				<input type="text" name="celular" id="celular"  maxlength="11" required>
+				<label for="password">Senha:</label>
+				<input type="password" name="password" id="password" required>
+				<div>
+					<a href="/test">Já é cadastrado. Clique Aqui!</a>
+				</div>
+				<input type="submit" id="btn" name="btn" value="Cadastrar">
+			</form>
+		</div>
+		<script type="text/javascript" src="{{url_for('static', filename='js/script.js')}}"></script>
+	</body>
+</html>
+

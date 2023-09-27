@@ -1,0 +1,114 @@
+*{
+	margin:0;
+	padding:0;	
+}
+
+body{
+	background:#ffffff;
+	color:#000000;
+	font-weight:bold;
+}
+
+.form{
+	display:flex;
+	flex-direction:column;
+	align-content:center;
+	align-items:center;
+	justify-content:center;
+	width:100%;
+	height:100vh;
+}
+
+.formlogin{
+	border:1px solid lightskyblue;
+	background:skyblue;
+	border-radius:4px;
+	display:flex;
+	flex-direction:column;
+	padding:40px;
+	box-shadow:10px 10px 40px black;
+}
+
+.formlogin input{
+	border:1px solid black;
+	padding:6px;
+	font-weight:bolder;
+}
+
+
+.formlogin input[type=file]{
+	border:1px solid transparent;
+}
+
+
+.link a{
+	padding:10px;
+	color:black;
+	text-decoration:none;
+}
+
+#login{
+	border-radius:5px;
+	border:1px solid transparent;
+	padding:6px 0px;
+	font-weight:bolder;
+}
+
+.formlogin a{
+	color:#000;
+	padding-top:4px;
+	text-decoration:none;
+	font-weight:bolder;
+}
+
+.formlogin h3{
+	text-align:center;
+	color:#000;
+}
+
+.formlogin a:hover{
+	color:slateblue;
+}
+
+
+.formlogin select option{
+	padding:25px;
+	font-weight:bolder;
+}
+
+.btn{
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	align-content: center;
+	justify-content:center;
+	color:#000;
+}
+
+.btn button:hover{
+	background:black;
+	color:white;
+}
+
+.btn button{
+	float:left;
+	width:150px;
+}
+
+
+@media (max-width:720px){
+
+	.form{
+		display:inline-block;
+		margin:5px;
+		margin-top:100px;
+	}
+
+	.formlogin input{
+		padding:15px;
+	}
+
+	#login{
+		padding:12px;
+	}
+}
