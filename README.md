@@ -2,14 +2,14 @@
 ## Projeto Inovação 
 ## Eyes-V
 
-Components:
-1. Felipe
-2. Igor
-3. Italo
-4. Manoel Vitor
-5. Matheus
-6. Prof. Paulo
-7. Sheory
+Components and yours responsability:
+1. Felipe (Dev)
+2. Igor (Dev)
+3. Italo (Scrum Master)
+4. Manoel Vitor (Dev)
+5. Matheus (Dev)
+6. Prof. Paulo (Cliente)
+7. Sheory (Dev)
 
 ## How to clone This Repository
 
