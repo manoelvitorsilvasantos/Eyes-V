@@ -6,6 +6,7 @@ from dao.mysql import DatabaseConnection
 from PIL import Image
 from io import BytesIO
 from utils.myserial import MYSerial
+from utils.twilio import SendWhatsappApi
 
 class FaceDetectionRecognition:
     def __init__(self):
@@ -35,7 +36,7 @@ class FaceDetectionRecognition:
         self.know_matricula = []
 
         self.my_serial = MYSerial('COM6', 9600)
-
+      
         # Crie uma instância da classe DatabaseConnection
         db = DatabaseConnection(
             dbname="image_db",
@@ -83,6 +84,7 @@ class FaceDetectionRecognition:
                 if any(matches):
                     name = self.known_names[matches.index(True)]
                     matricula = self.know_matricula[matches.index(True)]
+                    celphone = self.know_phones[matches.index(True)]
                     cor = self.cadastrado_cor
                 # Verification student in the database.
                 if name == "Desconhecido": # student dont found.
@@ -93,6 +95,7 @@ class FaceDetectionRecognition:
                     aluno_cadastrado = f"{name}{matricula}"
                     cv2.rectangle(img, (left, top), (right, bottom), cor, self.espessura)
                     cv2.putText(img, "[Aluno:"+  aluno_cadastrado + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
+                    # self.api_SendSMS.sendMessage(cel, msg_txt)
                     self.my_serial.receive(1) # envia dados serial para o arduino
             cv2.imshow('img', img)
 
