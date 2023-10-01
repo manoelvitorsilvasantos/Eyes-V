@@ -9,6 +9,7 @@
 	    exit; // Encerra a execução do script para evitar processamento adicional.
 	}
 
+
 	// Verifica se o formulário foi submetido e se todos os campos estão preenchidos
 	if(
 	    empty($_POST) || 
@@ -39,7 +40,7 @@
 		}
 		else{
 			echo "Erro ao inserir registro: ". $stmt->error;
-			sleep(1);
+			sleep(3);
 			header("location: new_student.php");
 		}
 
