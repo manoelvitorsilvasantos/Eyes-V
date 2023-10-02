@@ -6,7 +6,6 @@ from dao.mysql import DatabaseConnection
 from PIL import Image
 from io import BytesIO
 from utils.myserial import MYSerial
-from utils.twilio import SendWhatsappApi
 
 class FaceDetectionRecognition:
     def __init__(self):
