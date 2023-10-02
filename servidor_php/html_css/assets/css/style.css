@@ -1,0 +1,259 @@
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Share+Tech+Mono&display=swap');
+
+body {
+    background-color: #bfd8ac;
+    font-family: 'Istok Web', sans-serif;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+}
+
+/* Estilos para centralizar a div na página */
+.form-container {
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    background-color: #cbfca6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Título do formulário */
+h3, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para grupos de formulários */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Estilos para rótulos */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilos para campos de entrada de texto 
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #ff2929;
+}
+*/
+
+
+
+
+/* Estilos para campos de entrada de texto quando em foco */
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group select:focus,
+.form-group input[type="file"]:focus {
+    border: 2px solid #21834a; /* Cor da borda quando em foco */
+}
+
+
+.formlogin input[type="text"],
+.formlogin input[type="number"],
+.formlogin input[type="tel"],
+.formlogin input[type="email"],
+.formlogin input[type="password"],
+.formlogin select,
+.formlogininput[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+/* Estilos para o botão de envio */
+.form-group button[type="submit"], button#login {
+    background-color: #25a25a;
+    color: #C2C88C;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.formlogin {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px; /* Define a largura máxima para o formulário */
+}
+
+.formlogin label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.formlogin input[type=file] {
+    border: 5px solid transparent;
+    margin-right: 50px;
+    padding-right: 90px;
+}
+
+.link a {
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+#login {
+    background-color: #4f4f4f;
+    padding: 6px 0px;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+
+.formlogin a {
+    color: #000;
+    padding-top: 4px;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+
+.formlogin h3 {
+    text-align: center;
+    color: #070712;
+}
+/*
+.formlogin a:hover {
+    color: rgb(255, 0, 0);
+}
+*/
+
+.formlogin select option {
+    padding: 25px;
+    font-weight: bolder;
+}
+
+.btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-left: 500px;
+    padding-top: 50px;
+    float: left;
+    width: 150px;
+}
+
+.btn :hover {
+    background: #4f4f4f;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.formlogin input {
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 50px 20px;
+    margin-left:auto;
+    text-align: left;
+    background-color: #4f4f4f;
+    outline: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centralizar elementos do formulário horizontalmente */
+    justify-content: center;
+    /* Centralizar elementos do formulário verticalmente */
+    width: 100%;
+    height: 100vh;
+}
+
+/* Estilos para o botão de envio quando hover */
+.form-group button[type="submit"]:hover, button#login:hover {
+    background-color: #21834a;
+}
+
+/* Estilos para o link de voltar */
+.link {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #070712;
+}
+
+/* Estilos para o menu */
+.box {
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #C2C88C;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 30px;
+    background-color: #21834a;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #a09f9f;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.menu a:hover {
+    background-color: #3eb971;
+}
+/*
+.link a {
+    text-decoration: none;
+    color: #070712;
+}
+*/
