@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Verifica se a sessão está vazia (usuário não autenticado)
+if (empty($_SESSION)) {
+	header("location: index.php");
+	exit; // Encerra a execução do script para evitar processamento adicional.
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,17 +14,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastar Aluno</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <div class="box">
         <ul class="menu">
-			<li><a href="home.html">Home</a></li>
-			<li><a href="cad_alunos.html">Cadastrar Aluno</a></li>
-			<li><a href="reg_imagem.html">Adicionar Imagem</a></li>
-			<li><a href="cad_usuario.html">Adicionar Usuário</a></li>
-			<li><a href="sair.html">Sair</a></li>
+			<li><a href="dashboard.php">Home</a></li>
+            <li><a href="cad_alunos.php">Cadastrar Aluno</a></li>
+            <li><a href="reg_imagem.php">Adicionar Imagem</a></li>
+            <li><a href="cad_usuario.php">Adicionar Usuário</a></li>
+            <li><a href="logout.php">Sair</a></li>
 		</ul>
     </div>
 
@@ -50,6 +59,6 @@
             </div>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

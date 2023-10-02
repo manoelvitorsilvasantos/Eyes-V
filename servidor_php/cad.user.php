@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
 
 // Verifica se a sessão está vazia (usuário não autenticado)
-if(empty($_SESSION)){
-    header("location: index.php");
-    exit; // Encerra a execução do script para evitar processamento adicional.
+if (empty($_SESSION)) {
+	header("location: index.php");
+	exit; // Encerra a execução do script para evitar processamento adicional.
 }
 ?>
 
@@ -25,33 +25,33 @@ if(empty($_SESSION)){
             <h3>Cadastro - Eyes-V</h3>
             <br>
             <label for="nome">Nome</label>
-            <input 
-                type="text" 
-                id="nome" 
+            <input
+                type="text"
+                id="nome"
                 name="nome"
                 placeholder="Digite o nome">
-            
+
             <label for="usuario">Usuário</label>
-            <input 
-                type="text" 
-                id="usuario" 
+            <input
+                type="text"
+                id="usuario"
                 name="usuario"
                 placeholder="Digite o usuário">
-            
+
             <label for="email">E-mail</label>
-            <input 
-                type="email" 
-                id="email" 
+            <input
+                type="email"
+                id="email"
                 name="email"
                 placeholder="Digite o E-mail">
-            
+
             <label for="senha">Senha</label>
-            <input 
-                type="password" 
-                id="senha" 
+            <input
+                type="password"
+                id="senha"
                 name="senha"
                 placeholder="Digite a senha">
-            
+
             <label for="tipo">Tipo</label>
             <select id="tipo" name="tipo">
                 <option value="1">Administrador</option>
