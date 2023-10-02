@@ -102,3 +102,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagens"])) {
 	$stmt->close();
 	$conn->close();
 }
+

@@ -1,14 +1,15 @@
 # projeto-inovacao-ifba
 ## Projeto Inovação 
+## Eyes-V
 
-Components:
-1. Felipe
-2. Igor
-3. Italo
-4. Manoel Vitor
-5. Matheus
-6. Prof. Paulo
-7. Sheory
+Components and yours responsability:
+1. Felipe (Dev)
+2. Igor (Dev)
+3. Italo (Scrum Master)
+4. Manoel Vitor (Dev)
+5. Matheus (Dev)
+6. Prof. Paulo (Cliente)
+7. Sheory (Dev)
 
 ## How to clone This Repository
 
@@ -48,6 +49,9 @@ pip install dlib-19.19.0-cp38-cp38-win_amd64.whl
 1. Open the terminal
 2. Execute to command
 3. Type to your password
+
+I recommend you to use xampp in this project.
+[Xampp](https://www.apachefriends.org/download.html)
 
 ```bash
 mysql -u {username} -p
