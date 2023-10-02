@@ -1,81 +1,104 @@
 <?php
-	session_start();
-	// Verifica se a sessão está vazia (usuário não autenticado)
-	if(empty($_SESSION)){
-	    header("location: index.php");
-	    exit; // Encerra a execução do script para evitar processamento adicional.
-	}
+	<?php
+session_start();
+// Verifica se a sessão está vazia (usuário não autenticado)
+if (empty($_SESSION)) {
+	header("location: index.php");
+	exit; // Encerra a execução do script para evitar processamento adicional.
+}
 
+include 'config.php';
 
-	include('config.php');
+function buscarIdPorEmail($email) {
+	global $conn; // Precisamos acessar a conexão global dentro da função.
 
+	// Consulta SQL para buscar o ID com base no email.
+	$sql = "SELECT id FROM aluno WHERE email = ?"; // Substitua "usuarios" pelo nome da sua tabela.
 
-	function buscarIdPorEmail($email) {
-	    global $conn; // Precisamos acessar a conexão global dentro da função.
+	$stmt = $conn->prepare($sql);
+	$stmt->bind_param("s", $email); // "s" indica que o email é uma string.
 
-	    // Consulta SQL para buscar o ID com base no email.
-	    $sql = "SELECT id FROM aluno WHERE email = ?"; // Substitua "usuarios" pelo nome da sua tabela.
+	if ($stmt->execute()) {
+		$result = $stmt->get_result();
 
-	    $stmt = $conn->prepare($sql);
-	    $stmt->bind_param("s", $email); // "s" indica que o email é uma string.
-
-	    if ($stmt->execute()) {
-	        $result = $stmt->get_result();
-
-	        if ($result->num_rows > 0) {
-	            // O registro com o email especificado foi encontrado na tabela.
-	            $row = $result->fetch_assoc();
-	            return $row["id"]; // Retorna o ID do registro encontrado.
-	        } else {
-	            // Nenhum registro com o email especificado foi encontrado.
-	            return null; // Ou qualquer valor que você desejar para indicar que o email não foi encontrado.
-	        }
-	    } else {
-	        // Ocorreu um erro ao executar a consulta.
-	        return false;
-	    }
-
-	    $stmt->close();
-	}
-
-	$email = $_POST["email"];
-	$idEncontrado = buscarIdPorEmail($email);
-	$codigo = $idEncontrado;
-
-	if($idEncontrado === null){
-		header("location: salvar.imagem.php");
-	}
-	$conn->close();
-
-
-	if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagens"])){
-		include('config.php');
-		$allowed_extensions = array("jpg", "jpeg", "png", "gif");
-
-		foreach($_FILES["imagens"]["tmp_name"] as $key => $tmp_name){
-			$file_name = $_FILES["imagens"]["name"][$key];
-			$file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
-
-			if(in_array($file_extension, $allowed_extensions)){
-				$file_data = file_get_contents($_FILES["imagens"]["tmp_name"][$key]);
-				$sql = "INSERT INTO imagem (imagem_aluno, id_aluno) VALUES(?, ?)";
-				$stmt = $conn->prepare($sql);
-				$stmt->bind_param("ss", $file_data, $codigo);
-
-				if($stmt->execute()){
-					echo "<h3>Imagem salva com sucesso.</h3>";
-					header("location: dashboard.php");
-					exit;
-				}
-				else{
-					echo "<h3>Erro ao salvar a imagem $file_name no banco de dados.</h3>" . $conn->error . "<br>";
-					echo "<a href='dashboard.php'>Voltar ao Menu</a>";
-				}
-			}
-			else{
-				echo "Tipo de arquivo não permitido: $file_name.<br>";
-				echo "<a href='dashboard.php'>Voltar ao Menu</a>";
-			}
+		if ($result->num_rows > 0) {
+			// O registro com o email especificado foi encontrado na tabela.
+			$row = $result->fetch_assoc();
+			return $row["id"]; // Retorna o ID do registro encontrado.
+		} else {
+			// Nenhum registro com o email especificado foi encontrado.
+			return null; // Ou qualquer valor que você desejar para indicar que o email não foi encontrado.
 		}
-		$conn->close();
+	} else {
+		// Ocorreu um erro ao executar a consulta.
+		return false;
 	}
+	$stmt->close();
+}
+
+$email = $_POST["email"];
+$idEncontrado = buscarIdPorEmail($email);
+$codigo = $idEncontrado;
+
+if ($idEncontrado === null) {
+	header("location: reg_imagem.php");
+}
+
+// Verifique se a requisição é POST e se existem arquivos enviados
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagens"])) {
+	// Array de extensões permitidas
+	$allowed_extensions = array("jpg", "jpeg", "png", "gif");
+
+	// Inicie uma transação
+	$conn->begin_transaction();
+
+	// Variável para controlar erros
+	$erro = false;
+
+	// Loop através das imagens enviadas
+	foreach ($_FILES["imagens"]["tmp_name"] as $key => $tmp_name) {
+		$file_name = $_FILES["imagens"]["name"][$key];
+		$file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
+
+		// Verifique a extensão do arquivo
+		if (in_array($file_extension, $allowed_extensions)) {
+			$file_data = file_get_contents($_FILES["imagens"]["tmp_name"][$key]);
+
+			// Prepare a consulta SQL
+			$sql = "INSERT INTO imagem (imagem_aluno, id_aluno) VALUES(?, ?)";
+			$stmt = $conn->prepare($sql);
+
+			// Verifique se a preparação da consulta foi bem-sucedida
+			if (!$stmt) {
+				die("Erro na preparação da consulta: " . $conn->error);
+			}
+
+			// Vincule os parâmetros da consulta
+			$stmt->bind_param("si", $file_data, $codigo);
+
+			// Execute a consulta
+			if (!$stmt->execute()) {
+				$erro = true;
+				break; // Se houver um erro, saia do loop
+			}
+		} else {
+			echo "Tipo de arquivo não permitido: $file_name.<br>";
+		}
+	}
+
+	// Verifique se houve algum erro
+	if ($erro) {
+
+		echo "<h3>Ocorreu um erro ao salvar as imagens no banco de dados.</h3>" . $stmt->error . "<br>";
+		$conn->rollback(); // Desfaz a transação
+		header("location: reg_imagem.php");
+	} else {
+		echo "<h3>Todas as imagens foram salvas com sucesso.</h3>";
+		$conn->commit(); // Confirma a transação
+		header("location: dashboard.php");
+	}
+
+	// Feche a consulta e a conexão com o banco de dados
+	$stmt->close();
+	$conn->close();
+}
