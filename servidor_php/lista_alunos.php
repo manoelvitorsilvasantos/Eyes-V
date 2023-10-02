@@ -1,48 +1,21 @@
 <?php
 session_start();
-
+include "config.php";
 // Verifica se a sessão está vazia (usuário não autenticado)
 if (empty($_SESSION)) {
 	header("location: index.php");
 	exit; // Encerra a execução do script para evitar processamento adicional.
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Cadastar Aluno</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <style type="text/css">
-        .description{
-            display:flex;
-            flex-direction:row;
-            padding:10px;
-            align-content:center;
-            align-items:center;
-            justify-content:center;
-        }
-
-        .description > h1{
-            margin-top:100px;
-            text-align:center;
-        }
-
-        .description > p{
-            margin-top:100px;
-            text-align:justify-all;
-        }
-
-        .description > ul{
-            text-align:center;
-        }
-
-        .destaque{
-            font-weight:bolder;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
 </head>
 
 <body>
@@ -60,13 +33,23 @@ if ($_SESSION['tipo'] == 1) {
             <li><a href="logout.php">Sair</a></li>
 		</ul>
     </div>
-    <br>
-    <br>
-    <div class="description">
-        <br><br>
-        <h3>Seja bem vindo a
-            <br>
-            <span>EYES-V</span></h3>
+
+    <div class="form-container">
+        <?php
+$sql = "SELECT a.id, a.nome, a.phone, a.email, COUNT(i.id_aluno) AS quantidade_imagens FROM aluno a LEFT JOIN imagem i ON a.id = i.id_aluno GROUP BY a.id, a.nome, a.phone, a.email";
+$resultado = $conn->query($sql);
+if ($resultado->num_rows > 0) {
+	echo "<table><tr><th>ID</th><th>nome</th><th>Celular</th><th>E-mail</th><th>Qtd Imagens</th>";
+	while ($row = $resultado->fetch_assoc()) {
+		echo "<tr><td>" . $row["id"] . "</td><td>" . $row["nome"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["email"] . "</td><td>" . $row["quantidade_imagens"] . "</td></tr>";
+	}
+	echo "</table>";
+} else {
+	echo "<h3>0 resultados</h3>";
+}
+$conn->close();
+?>
     </div>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

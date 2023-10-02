@@ -22,8 +22,13 @@ if (empty($_SESSION)) {
         <ul class="menu">
 			<li><a href="dashboard.php">Home</a></li>
             <li><a href="cad_alunos.php">Cadastrar Aluno</a></li>
+            <li><a href="lista_alunos.php">Lista Alunos</a></li>
             <li><a href="reg_imagem.php">Adicionar Imagem</a></li>
-            <li><a href="cad_usuario.php">Adicionar Usuário</a></li>
+            <?php
+if ($_SESSION['tipo'] == 1) {
+	echo "<li><a href='cad_usuario.php'>Adicionar Usuário</a></li>";
+}
+?>
             <li><a href="logout.php">Sair</a></li>
 		</ul>
     </div>
@@ -35,23 +40,23 @@ if (empty($_SESSION)) {
             <div class="form-group">
                 <label for="codigo">Código</label>
                 <input placeholder="Digite o código" type="number" id="codigo" name="codigo" min="1"
-                    oninput="toUpper(this)" max="99999999999" maxlength="11">
+                    oninput="toUpper(this)" max="99999999999" maxlength="11" required>
             </div>
 
             <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite o nome">
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
             </div>
 
             <div class="form-group">
                 <label for="phone">Celular</label>
                 <input type="tel" id="cel" name="cel" maxlength="15" placeholder="(XX) XXXXX-XXXX"
-                    oninput="mascaraTelefone(this);">
+                    oninput="mascaraTelefone(this);" required>
             </div>
 
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Digite o E-mail">
+                <input type="email" id="email" name="email" placeholder="Digite o E-mail" required>
             </div>
 
             <div class="form-group">

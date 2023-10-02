@@ -1,6 +1,6 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
-
 // Verifica se a sessão está vazia (usuário não autenticado)
 if (empty($_SESSION)) {
 	header("location: index.php");
@@ -9,10 +9,15 @@ if (empty($_SESSION)) {
 
 $title = null;
 $msg = null;
+$link = null;
+$link_title = null;
 
-if (!empty($_GET['title']) && (!empty($_GET['msg']))) {
+if (!empty($_GET['title']) && (!empty($_GET['msg']))
+	&& (!empty($_GET['link'])) && (empty($_GET['link_title']))) {
 	$title = $_GET['title'];
 	$msg = $_GET['msg'];
+	$link = $_GET['link'];
+	$link_title = $_GET['link_title'];
 } else {
 	header("location: dashboard.php");
 }
@@ -76,6 +81,9 @@ if ($_SESSION['tipo'] == 1) {
     <div class="description">
         <br><br>
         <h5><?php echo $msg; ?></h5>
+        <h5>Tentar novamente <a href="<?php echo $link; ?>">
+            Clique Aqui
+        </a></h5>
     </div>
 
 </body>

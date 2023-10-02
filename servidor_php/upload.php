@@ -1,5 +1,4 @@
 <?php
-	<?php
 session_start();
 // Verifica se a sessão está vazia (usuário não autenticado)
 if (empty($_SESSION)) {
@@ -88,17 +87,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagens"])) {
 
 	// Verifique se houve algum erro
 	if ($erro) {
-
-		echo "<h3>Ocorreu um erro ao salvar as imagens no banco de dados.</h3>" . $stmt->error . "<br>";
+		$title = "Error.";
+		$msg = "Aluno não registrado, cadastre primeiramente o aluno.";
 		$conn->rollback(); // Desfaz a transação
-		header("location: reg_imagem.php");
+		header("location: sucess.php?title=$title&msg=$msg");
 	} else {
-		echo "<h3>Todas as imagens foram salvas com sucesso.</h3>";
 		$conn->commit(); // Confirma a transação
-		header("location: dashboard.php");
+		$title = "Sucesso.";
+		$msg = "Suas imagens foram salvas com sucesso.";
+		header("location: sucess.php?title=$title&msg=$msg");
 	}
 
 	// Feche a consulta e a conexão com o banco de dados
 	$stmt->close();
 	$conn->close();
 }
+

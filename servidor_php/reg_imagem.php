@@ -22,19 +22,24 @@ if (empty($_SESSION)) {
         <ul class="menu">
 			<li><a href="dashboard.php">Home</a></li>
             <li><a href="cad_alunos.php">Cadastrar Aluno</a></li>
+            <li><a href="lista_alunos.php">Lista Alunos</a></li>
             <li><a href="reg_imagem.php">Adicionar Imagem</a></li>
-            <li><a href="cad_usuario.php">Adicionar Usuário</a></li>
+            <?php
+if ($_SESSION['tipo'] == 1) {
+	echo "<li><a href='cad_usuario.php'>Adicionar Usuário</a></li>";
+}
+?>
             <li><a href="logout.php">Sair</a></li>
 		</ul>
     </div>
 
     <div class="form-container">
-        <form action="upload.php" method="POST" enctype="multipart/form-data" class="formlogin">
+        <form method="POST" action="upload.php" enctype="multipart/form-data" class="formlogin">
             <h3>Cadastar Imagem</h3>
             <br>
             <label for="email">E-mail do Aluno</label>
             <input type="email" id="email" name="email" placeholder="Digite o E-mail do Aluno" required>
-            <label for="photo">Imagem 1</label>
+            <label for="imagens">Imagems</label>
             <input type="file" id="imagens" name="imagens[]" multiple>
             <br>
             <div class="form-group">

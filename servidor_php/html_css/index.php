@@ -5,15 +5,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulário de Login</title>
-	<link rel="stylesheet" href="style.css">
-	<script src="script.js"></script>
+	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
 	<div class="form">
 		<div class="formlogin">
 			<h2>Eyes</h2>
-			<form action="processa_login.php" method="POST">
+			<form action="login.php" method="POST">
 				<label for="usuario">Usuário:</label>
 				<input type="text" id="usuario" name="usuario" required placeholder="Digite seu nome de usuário">
 				<br><br>
