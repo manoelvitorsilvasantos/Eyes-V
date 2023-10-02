@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagens"])) {
 	// Verifique se houve algum erro
 	if ($erro) {
 		$title = "Error.";
-		$msg = "Error " . $stmt->error . ",Não foi possivel salvar as imagens.<br>";
+		$msg = "Aluno não registrado, cadastre primeiramente o aluno.";
 		$conn->rollback(); // Desfaz a transação
 		header("location: sucess.php?title=$title&msg=$msg");
 	} else {

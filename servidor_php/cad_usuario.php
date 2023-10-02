@@ -22,8 +22,13 @@ if (empty($_SESSION)) {
         <ul class="menu">
 			<li><a href="dashboard.php">Home</a></li>
             <li><a href="cad_alunos.php">Cadastrar Aluno</a></li>
+            <li><a href="lista_alunos.php">Lista Alunos</a></li>
             <li><a href="reg_imagem.php">Adicionar Imagem</a></li>
-            <li><a href="cad_usuario.php">Adicionar Usuário</a></li>
+            <?php
+if ($_SESSION['tipo'] == 1) {
+	echo "<li><a href='cad_usuario.php'>Adicionar Usuário</a></li>";
+}
+?>
             <li><a href="logout.php">Sair</a></li>
 		</ul>
     </div>
