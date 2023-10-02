@@ -1,31 +1,66 @@
-<?php 
-	session_start();
-	if(empty($_SESSION)){
-		header("location: index.php");
-	}
-?>
+<?php
+session_start();
 
+// Verifica se a sessão está vazia (usuário não autenticado)
+if (empty($_SESSION)) {
+	header("location: index.php");
+	exit; // Encerra a execução do script para evitar processamento adicional.
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/dashboard.css">
-    <title>Eyes-V</title>
+    <title>Menu</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style type="text/css">
+        .description{
+            display:flex;
+            flex-direction:row;
+            padding:10px;
+            align-content:center;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .description > h1{
+            margin-top:100px;
+            text-align:center;
+        }
+
+        .description > p{
+            margin-top:100px;
+            text-align:justify-all;
+        }
+
+        .description > ul{
+            text-align:center;
+        }
+
+        .destaque{
+            font-weight:bolder;
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="menu">
-        <div class="logo">Eyes-V</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="new_student.php">Cadastra Aluno</a></li>
-            <li><a href="salvar.imagem.php">Add Imagem</a></li>
-            <li><a href="cad.user.php">Add Usuário</a></li>
+    <div class="box">
+        <ul class="menu">
+			<li><a href="dashboard.php">Home</a></li>
+            <li><a href="cad_alunos.php">Cadastrar Aluno</a></li>
+            <li><a href="reg_imagem.php">Adicionar Imagem</a></li>
+            <li><a href="cad_usuario.php">Adicionar Usuário</a></li>
             <li><a href="logout.php">Sair</a></li>
-        </ul>
-        <div class="menu-icon">☰</div>
-    </nav>
-    <!-- Conteúdo do site aqui -->
-    <script type="text/javascript" src="./assets/js/script.js"></script>
+		</ul>
+    </div>
+    <br>
+    <br>
+    <div class="description">
+        <br><br>
+        <h3>Seja bem vindo a
+            <br>
+            <span>EYES-V</span></h3>
+    </div>
 </body>
 </html>
