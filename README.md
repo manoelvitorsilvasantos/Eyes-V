@@ -35,6 +35,23 @@ cd C:/users/{your_username}/Documents/projeto-inovacao-ifba
 pip install -r requirements.txt
 ```
 
+# If you are  using python 3.11, please create a virtual ambient.
+1. Make a virtual environment yourself.
+```txt
+python3 -m venv venv
+```
+2. Active your virtual environment.
+```txt
+source venv/bin/activate
+```
+3. Try to install dependeces.
+```txt
+pip install -r requirements
+```
+4. Disabling virtual environment
+```txt
+deactivate
+```
 ## How to fix error with library dlib
 1. Open the terminal
 2. Navigate to the directory where are to clone the repository.
