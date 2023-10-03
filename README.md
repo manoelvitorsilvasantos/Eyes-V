@@ -74,10 +74,14 @@ I recommend you to use xampp in this project.
 mysql -u {username} -p
 ```
 ```bash
-CREATE USER 'ifba'@'seu_host' IDENTIFIED BY 'ifba6514';
+CREATE USER 'ifba'@'localhost' IDENTIFIED BY 'ifba6514';
 ```
 ```bash
 GRANT ALL PRIVILEGES ON *.* TO 'ifba'@'localhost' WITH GRANT OPTION;
+```
+
+```bash
+FLUSH PRIVILEGES;
 ```
 
 Now we will execute query to create the database
