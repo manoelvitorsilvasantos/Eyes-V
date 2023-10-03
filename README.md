@@ -35,7 +35,7 @@ cd C:/users/{your_username}/Documents/projeto-inovacao-ifba
 pip install -r requirements.txt
 ```
 
-# If you are  using python 3.11, please create a virtual ambient.
+# If you are  using python 3.11, please create a virtual environment.
 1. Make a virtual environment yourself.
 ```txt
 python3 -m venv venv
