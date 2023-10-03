@@ -73,6 +73,13 @@ I recommend you to use xampp in this project.
 ```bash
 mysql -u {username} -p
 ```
+```bash
+CREATE USER 'ifba'@'seu_host' IDENTIFIED BY 'ifba6514';
+```
+```bash
+GRANT ALL PRIVILEGES ON *.* TO 'ifba'@'localhost' WITH GRANT OPTION;
+```
+
 Now we will execute query to create the database
 ```sql
 CREATE DATABASE image_db;
@@ -130,8 +137,8 @@ from dao.mysql import DatabaseConnect
 # instance that you will to create.
 db = DatabaseConnect(
   "image_db", # Database name
-  "root", # User to database
-  "root", # Password to database
+  "ifba", # User to database
+  "ifba6514", # Password to database
   "localhost", # host name or IP
   "3306" # port number, by default mysql to use the port 3306
 )
