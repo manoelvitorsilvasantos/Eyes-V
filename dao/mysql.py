@@ -39,7 +39,7 @@ class DatabaseConnection:
     def get_all(self):
         try:
             with self.connection.cursor() as cursor:
-                select_query = "SELECT * FROM aluno a JOIN imagem i ON i.id_aluno = a.id"
+                select_query = "SELECT a.id, a.nome, a.phone, a.email, i.imagem_aluno FROM aluno a JOIN imagem i ON i.id_aluno = a.id"
                 cursor.execute(select_query)
                 records = cursor.fetchall()
                 return records

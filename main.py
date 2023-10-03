@@ -49,9 +49,9 @@ class FaceDetectionRecognition:
         image_records = db.get_all()
 
         for record in image_records:
-            matricula, name, phone, _, _, image_binary, _ = record
-            #_, name, _, image_binary, _, _ = record
-            
+            # pega o retorno do query.
+            # matricula, name, phone, _, _, image_binary, _= record
+            matricula, name, phone, _, image_binary = record
             # Converta os dados binários em um array de bytes
             image_bytes = bytearray(image_binary)
 
@@ -60,6 +60,9 @@ class FaceDetectionRecognition:
 
             # Converta a imagem Pillow em um array de imagem NumPy
             image_array = np.array(image_pil)
+
+            if len(image_array.shape) == 2:
+                image_array = cv2.cvtColor(image_array, cv2.COLOR_BGR2GRAY)
 
             face_encoding = face_recognition.face_encodings(image_array)[0]
             self.known_faces.append(face_encoding)
@@ -71,7 +74,7 @@ class FaceDetectionRecognition:
         self.my_serial.load()
         while True:
             ret, img = self.cap.read()
-            rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
             face_locations = face_recognition.face_locations(rgb_img)
             face_encodings = face_recognition.face_encodings(rgb_img, face_locations)
