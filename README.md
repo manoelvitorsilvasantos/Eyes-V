@@ -76,7 +76,7 @@ I recommend you to use xampp in this project.
 [Xampp](https://www.apachefriends.org/download.html)
 
 ```bash
-mysql -u {username} -p
+mysql -u root -p
 ```
 ```bash
 CREATE USER 'ifba'@'localhost' IDENTIFIED BY 'ifba6514';
