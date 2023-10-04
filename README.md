@@ -61,6 +61,7 @@ cd C:/users/{your_username}/Documents/projeto-inovacao-ifba
 pip install dlib-19.19.0-cp38-cp38-win_amd64.whl
 ```
 [A video tutorial on how to solve a problem with dlib.](https://www.youtube.com/watch?v=d0pMd-MLqtc)
+[Visual Studio](https://visualstudio.microsoft.com/pt-br/downloads/)
 
 ## How to create database
 
