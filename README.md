@@ -112,12 +112,12 @@ CREATE TABLE IF NOT EXISTS aluno(
 );
 ```
 ```sql
-CREATE TABLE IF NOT EXISTS image(
-   id INT NOT NULL AUTO_INCREMENT,
-   imagem_aluno LONGBLOB NOT NULL,
-   id_aluno INT NOT NULL,
-   FOREIGN KEY(id) REFERENCES aluno(id),
-   PRIMARY KEY(id)
+CREATE TABLE IF NOT EXISTS imagem(
+	id INT NOT NULL AUTO_INCREMENT,
+	imagem_aluno LONGBLOB NOT NULL,
+	id_aluno INT NOT NULL,
+	FOREIGN KEY(id_aluno) REFERENCES aluno(id),
+	PRIMARY KEY(id)
 );
 ```
 ```sql
