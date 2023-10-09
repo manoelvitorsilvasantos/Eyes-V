@@ -86,11 +86,12 @@ FLUSH PRIVILEGES;
 
 Now we will execute query to create the database
 ```sql
-CREATE DATABASE image_db;
-```
-Now we will execute query to create us the table
+DROP DATABASE image_db;
 
-```sql
+CREATE DATABASE image_db;
+
+USE image_db;
+
 CREATE TABLE IF NOT EXISTS usuarios_credencial(
 	id INT NOT NULL AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL,
@@ -101,8 +102,8 @@ CREATE TABLE IF NOT EXISTS usuarios_credencial(
 	data DATE,
 	PRIMARY KEY(id)
 );
-```
-```sql
+
+
 CREATE TABLE IF NOT EXISTS aluno(
    id INT NOT NULL,
    nome VARCHAR(32) NOT NULL,
@@ -110,8 +111,9 @@ CREATE TABLE IF NOT EXISTS aluno(
    email VARCHAR(150) NOT NULL,
    PRIMARY KEY(id)
 );
-```
-```sql
+
+
+
 CREATE TABLE IF NOT EXISTS imagem(
 	id INT NOT NULL AUTO_INCREMENT,
 	imagem_aluno LONGBLOB NOT NULL,
@@ -119,12 +121,10 @@ CREATE TABLE IF NOT EXISTS imagem(
 	FOREIGN KEY(id_aluno) REFERENCES aluno(id),
 	PRIMARY KEY(id)
 );
-```
-```sql
+
 INSERT INTO aluno(id, nome, phone, email)
 VALUES(1, 'test', '5599999999999', 'test@email.com');
-```
-```sql
+
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
 VALUES('administrador', 'administrador@admin.com', 'admin', MD5('admin'), '1', CURDATE());
 ```
