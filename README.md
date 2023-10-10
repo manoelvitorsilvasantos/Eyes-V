@@ -1,6 +1,4 @@
-# projeto-inovacao-ifba
-## Projeto Inovação 
-## Eyes-V
+# Eyes-V Project - Verena Eyes v1.0.0
 
 Equip development:
 * [Felipe](https://github.com/Felipegdecastro)
