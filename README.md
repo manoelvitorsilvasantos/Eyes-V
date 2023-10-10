@@ -3,14 +3,27 @@
 ## Eyes-V
 
 Components and yours responsability:
-* Felipe (Dev)[felipe Castro](https://github.com/Felipegdecastro)
-* Igor (Dev)[Igor Tosta](https://github.com/igorttosta)
-* Italo (Scrum Master)[Italo](https://github.com/Itaperam)
-* Manoel Vitor (Dev)[Manoel Vitor](https://github.com/manoelvitorsilvasantos)
-* Matheus (Dev)[Matheus Lima](https://github.com/limabarreto)
-* Prof. Paulo (Cliente)[Professor Paulo Perris](https://github.com/pauloperris)
-* Sheory (Dev)[Sheory Martins](https://github.com/sheory)
+* [Felipe](https://github.com/Felipegdecastro)
+* [Igor](https://github.com/igorttosta)
+* [Italo](https://github.com/Itaperam)
+* [Manoel Vitor](https://github.com/manoelvitorsilvasantos)
+* [Matheus Lima](https://github.com/limabarreto)
+* [Prof. Paulo Perris](https://github.com/pauloperris)
+* [Sheory Martins](https://github.com/sheory)
 
+## Responsability Equip
+* Devs/Backends
+  1. Igor Tosta
+  2. Manoel Vitor
+  3. Sheory Martins
+* Designer/Frontend
+  1. Felipe Castro
+  2. Matheus Lima
+* Client
+  1. Professor Paulo Perris
+* Scrum Master
+  1. Itálo Martins 
+  
 ## How to clone This Repository
 
 To clone this repository to your local machine, follow the steps bellow:
@@ -22,16 +35,16 @@ To clone this repository to your local machine, follow the steps bellow:
 ```bash
 cd C:/users/{your_username}/Documents/
 git clone https://github.com/manoelvitorsilvasantos/Eyes-V
-cd C:/users/{your_username}/Documents/projeto-inovacao-ifba
+cd C:/users/{your_username}/Documents/Eyes-V
 ```
 
-## How to install dependences
+## How to install dependences (dlib)
 1. Open the terminal
 2. Navigate to the directory where are to save the repository.
 3. Intro you will to execute  command
 
 ```bash
-cd C:/users/{your_username}/Documents/projeto-inovacao-ifba
+cd C:/users/{your_username}/Documents/Eyes-V
 pip install -r requirements.txt
 ```
 
@@ -57,7 +70,7 @@ deactivate
 2. Navigate to the directory where are to clone the repository.
 3. Execute command to install library
 ```bash
-cd C:/users/{your_username}/Documents/projeto-inovacao-ifba
+cd C:/users/{your_username}/Documents/Eyes-V
 pip install dlib-19.19.0-cp38-cp38-win_amd64.whl
 ```
 A video tutorial on how to solve a problem with dlib.
@@ -66,7 +79,7 @@ A video tutorial on how to solve a problem with dlib.
 Visual studio for windows is recommended for installation
 [Click Here](https://visualstudio.microsoft.com/pt-br/downloads/)
 
-## How to create database
+## How to create database using mysql terminal CMD or Shell
 
 1. Open the terminal
 2. Execute to command
@@ -78,20 +91,21 @@ I recommend you to use xampp in this project.
 ```bash
 mysql -u root -p
 ```
+After execute it.
 ```bash
 CREATE USER 'ifba'@'localhost' IDENTIFIED BY 'ifba6514';
 GRANT ALL PRIVILEGES ON *.* TO 'ifba'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
-
 Now we will execute query to create the database
 ```sql
+-- drop database exist
 DROP DATABASE image_db;
-
+-- create database image_db
 CREATE DATABASE image_db;
-
+-- use database
 USE image_db;
-
+-- create table usuario_credencial if not exist 
 CREATE TABLE IF NOT EXISTS usuarios_credencial(
 	id INT NOT NULL AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL,
@@ -102,8 +116,7 @@ CREATE TABLE IF NOT EXISTS usuarios_credencial(
 	data DATE,
 	PRIMARY KEY(id)
 );
-
-
+-- create table aluno if not exist
 CREATE TABLE IF NOT EXISTS aluno(
    id INT NOT NULL,
    nome VARCHAR(32) NOT NULL,
@@ -111,9 +124,7 @@ CREATE TABLE IF NOT EXISTS aluno(
    email VARCHAR(150) NOT NULL,
    PRIMARY KEY(id)
 );
-
-
-
+-- create table imagem if not exist
 CREATE TABLE IF NOT EXISTS imagem(
 	id INT NOT NULL AUTO_INCREMENT,
 	imagem_aluno LONGBLOB NOT NULL,
@@ -121,17 +132,18 @@ CREATE TABLE IF NOT EXISTS imagem(
 	FOREIGN KEY(id_aluno) REFERENCES aluno(id),
 	PRIMARY KEY(id)
 );
-
+-- insert intro table aluno register begin
 INSERT INTO aluno(id, nome, phone, email)
 VALUES(1, 'test', '5599999999999', 'test@email.com');
-
+-- insert intro table usuario_credencial register begin
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
 VALUES('administrador', 'administrador@admin.com', 'admin', MD5('admin'), '1', CURDATE());
+
 ```
+## How you'll to use class DatabaseConnect.py from connect database mysql.
 Please, Look to mysql.py file and writer your credencial to connect database any difficulty.
 
 Example:
-
 
 ```python
 # library that you will to use
