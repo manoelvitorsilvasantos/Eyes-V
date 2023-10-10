@@ -3,13 +3,13 @@
 ## Eyes-V
 
 Components and yours responsability:
-1. Felipe (Dev)
-2. Igor (Dev)
-3. Italo (Scrum Master)
-4. Manoel Vitor (Dev)
-5. Matheus (Dev)
-6. Prof. Paulo (Cliente)
-7. Sheory (Dev)
+1.[ Felipe (Dev)](https://github.com/Felipegdecastro) 
+2. [Igor (Dev)](https://github.com/igorttosta)
+3. [Italo (Scrum Master)](https://github.com/Itaperam)
+4. [Manoel Vitor (Dev)](https://github.com/manoelvitorsilvasantos)
+5. [Matheus (Dev)](https://github.com/limabarreto)
+6. [Prof. Paulo (Cliente)](https://github.com/pauloperris)
+7. [Sheory (Dev)](https://github.com/sheory)
 
 ## How to clone This Repository
 
@@ -21,7 +21,7 @@ To clone this repository to your local machine, follow the steps bellow:
 
 ```bash
 cd C:/users/{your_username}/Documents/
-git clone https://github.com/pauloperris/projeto-inovacao-ifba.git
+git clone https://github.com/manoelvitorsilvasantos/Eyes-V
 cd C:/users/{your_username}/Documents/projeto-inovacao-ifba
 ```
 
