@@ -2,7 +2,7 @@
 ## Projeto Inovação 
 ## Eyes-V
 
-Components and yours responsability:
+Equip development:
 * [Felipe](https://github.com/Felipegdecastro)
 * [Igor](https://github.com/igorttosta)
 * [Italo](https://github.com/Itaperam)
@@ -11,19 +11,6 @@ Components and yours responsability:
 * [Prof. Paulo Perris](https://github.com/pauloperris)
 * [Sheory Martins](https://github.com/sheory)
 
-## Responsability Equip
-* Devs/Backends
-  1. Igor Tosta
-  2. Manoel Vitor
-  3. Sheory Martins
-* Designer/Frontend
-  1. Felipe Castro
-  2. Matheus Lima
-* Client
-  1. Professor Paulo Perris
-* Scrum Master
-  1. Itálo Martins 
-  
 ## How to clone This Repository
 
 To clone this repository to your local machine, follow the steps bellow:
