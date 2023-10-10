@@ -3,13 +3,13 @@
 ## Eyes-V
 
 Components and yours responsability:
-1.Felipe (Dev)[felipe Castro](https://github.com/Felipegdecastro) 
-2.Igor (Dev)[Igor Tosta](https://github.com/igorttosta)
-3.Italo (Scrum Master)[Italo](https://github.com/Itaperam)
-4.Manoel Vitor (Dev)[Manoel Vitor](https://github.com/manoelvitorsilvasantos)
-5.Matheus (Dev)[Matheus Lima](https://github.com/limabarreto)
-6.Prof. Paulo (Cliente)[Professor Paulo Perris](https://github.com/pauloperris)
-7.Sheory (Dev)[Sheory Martins](https://github.com/sheory)
+* Felipe (Dev)[felipe Castro](https://github.com/Felipegdecastro)
+* Igor (Dev)[Igor Tosta](https://github.com/igorttosta)
+* Italo (Scrum Master)[Italo](https://github.com/Itaperam)
+* Manoel Vitor (Dev)[Manoel Vitor](https://github.com/manoelvitorsilvasantos)
+* Matheus (Dev)[Matheus Lima](https://github.com/limabarreto)
+* Prof. Paulo (Cliente)[Professor Paulo Perris](https://github.com/pauloperris)
+* Sheory (Dev)[Sheory Martins](https://github.com/sheory)
 
 ## How to clone This Repository
 
