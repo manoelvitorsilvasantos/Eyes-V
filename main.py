@@ -16,7 +16,8 @@ class FaceDetectionRecognition:
         self.tamanho = 1
         self.espessura = 2
         # selecionar webcam
-        self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        #self.cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+        self.cap = cv2.VideoCapture(0)
         # definir largura da tela
         self.cap.set(3, 640)
         # definir altura da tela.
@@ -74,7 +75,7 @@ class FaceDetectionRecognition:
         self.my_serial.load()
         while True:
             ret, img = self.cap.read()
-            rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
             face_locations = face_recognition.face_locations(rgb_img)
             face_encodings = face_recognition.face_encodings(rgb_img, face_locations)

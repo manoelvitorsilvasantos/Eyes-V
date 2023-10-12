@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS imagem(
 
 
 INSERT INTO aluno(id, nome, phone, email)
-VALUES(1, 'Manoel Vitor', '(74) 99972-9815', 'manoelvitorsilvasantos@gmail.com');
+VALUES(1, 'Manoel Vitor', '5574999729815', 'manoelvitorsilvasantos@gmail.com');
 
 
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
