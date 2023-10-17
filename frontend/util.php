@@ -1,25 +1,21 @@
 <?php
-	function getCodigo($email){
-		$codigo=0;
-		$sql = "SELECT * FROM aluno WHERE email = ?";
-		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("s", $email);
-		if($stmt->execute()){
-			$resultado=$stmt->get_result();
-			if($resultado->num_rows > 0){
-				while($row=$resultado->fetch_assoc()){
-					$codigo = $row["id"];
-				}
-			}else{
-				header("location: salvar.imagem");
-				exit;
-			}
-		}
-		else{
-			echo "Erro ao executar a consulta: " . $conn->error;
-		}
+class PhoneNumberFormatter {
+	private static $instance;
+	private $codigoPais = "55";
 
-		$stmt->close();
-		$conn->close();
-		return $codigo;
+	private function __construct() {
+
 	}
+
+	public static function getInstance() {
+		if (self::$instance === null) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
+
+	public function formatPhoneNumber($phoneNumber) {
+		$phoneNumber = preg_replace("/[^0-9]/", "", $phoneNumber);
+		return $this->codigoPais . $phoneNumber;
+	}
+}

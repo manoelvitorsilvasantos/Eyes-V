@@ -1,16 +1,14 @@
 <?php
 session_start();
+include 'config.php';
 // Verifica se a sessão está vazia (usuário não autenticado)
 if (empty($_SESSION)) {
 	header("location: index.php");
 	exit; // Encerra a execução do script para evitar processamento adicional.
 }
 
-include 'config.php';
-
 function buscarIdPorEmail($email) {
 	global $conn; // Precisamos acessar a conexão global dentro da função.
-
 	// Consulta SQL para buscar o ID com base no email.
 	$sql = "SELECT id FROM aluno WHERE email = ?"; // Substitua "usuarios" pelo nome da sua tabela.
 
@@ -40,7 +38,10 @@ $idEncontrado = buscarIdPorEmail($email);
 $codigo = $idEncontrado;
 
 if ($idEncontrado === null) {
-	header("location: reg_imagem.php");
+	$title = "Error";
+	$message = "Aluno não registrado, cadastre primeiramente o aluno.";
+	header("location: sucess.php?title=$title&message=$message");
+	exit;
 }
 
 // Verifique se a requisição é POST e se existem arquivos enviados
@@ -87,19 +88,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagens"])) {
 
 	// Verifique se houve algum erro
 	if ($erro) {
-		$title = "Error.";
-		$msg = "Aluno não registrado, cadastre primeiramente o aluno.";
-		$conn->rollback(); // Desfaz a transação
-		header("location: sucess.php?title=$title&msg=$msg");
+		$conn->rollback();
+		$title = "Error";
+		$message = "Aluno não registrado, cadastre primeiramente o aluno.";
+		header("location: sucess.php?title=$title&message=$message");
+		exit;
 	} else {
-		$conn->commit(); // Confirma a transação
-		$title = "Sucesso.";
-		$msg = "Suas imagens foram salvas com sucesso.";
-		header("location: sucess.php?title=$title&msg=$msg");
+		$conn->commit();
+		$title = "Sucesso";
+		$message = "Suas imagens foram salvas com sucesso.";
+		header("location: sucess.php?title=$title&message=$message");
+		exit;
 	}
 
 	// Feche a consulta e a conexão com o banco de dados
 	$stmt->close();
 	$conn->close();
 }
-

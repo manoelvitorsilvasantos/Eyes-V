@@ -1,10 +1,11 @@
-<?php 
+<?php
 session_start();
+include "config.php";
 
 // Verifica se a sessão está vazia (usuário não autenticado)
-if(empty($_SESSION)){
-    header("location: index.php");
-    exit; // Encerra a execução do script para evitar processamento adicional.
+if (empty($_SESSION)) {
+	header("location: index.php");
+	exit; // Encerra a execução do script para evitar processamento adicional.
 }
 ?>
 
@@ -25,19 +26,20 @@ if(empty($_SESSION)){
             <h3>Cadastro - Eyes-V</h3>
             <br>
             <label for="email">E-mail do Aluno</label>
-            <input 
+            <input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="Digite o E-mail do Aluno"
-                required 
+                required
             >
-            <label for="photo">Imagem 1</label>
-            <input 
-                type="file" 
-                id="imagens" 
+            <label for="imagens">Imagem 1</label>
+            <input
+                type="file"
+                id="imagens"
                 name="imagens[]"
-                multiple 
+                multiple
+                required
             >
             <br>
             <div class="btn">

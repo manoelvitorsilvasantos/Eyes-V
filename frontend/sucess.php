@@ -8,76 +8,34 @@ if (empty($_SESSION)) {
 }
 
 $title = null;
-$msg = null;
+$message = null;
 
-if (!empty($_GET['title']) && (!empty($_GET['msg']))) {
+if (!empty($_GET['title']) && (!empty($_GET['message']))) {
 	$title = $_GET['title'];
-	$msg = $_GET['msg'];
+	$message = $_GET['message'];
 } else {
 	header("location: dashboard.php");
+	exit;
 }
+
+$title = $_GET['title'];
+$message = $_GET['message'];
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <style type="text/css">
-        .description{
-            display:flex;
-            flex-direction:row;
-            padding:10px;
-            align-content:center;
-            align-items:center;
-            justify-content:center;
-        }
-
-        .description > h1, h2, h3, h4, h5, h6{
-            margin-top:100px;
-            text-align:center;
-        }
-
-        .description > p{
-            margin-top:100px;
-            text-align:justify-all;
-        }
-
-        .description > ul{
-            text-align:center;
-        }
-
-        .destaque{
-            font-weight:bolder;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
-
 <body>
-    <div class="box">
-        <ul class="menu">
-			<li><a href="dashboard.php">Home</a></li>
-            <li><a href="cad_alunos.php">Cadastrar Aluno</a></li>
-            <li><a href="lista_alunos.php">Lista Alunos</a></li>
-            <li><a href="reg_imagem.php">Adicionar Imagem</a></li>
-            <?php
-if ($_SESSION['tipo'] == 1) {
-	echo "<li><a href='cad_usuario.php'>Adicionar Usuário</a></li>";
-}
-?>
-            <li><a href="logout.php">Sair</a></li>
-		</ul>
+    <div class="link">
+        <a href="dashboard.php">Voltar ao Menu.</a>
     </div>
-
-    <br>
-    <br>
-    <div class="description">
-        <br><br>
-        <h5><?php echo $msg; ?></h5>
+    <div class="form">
+        <h3><?php echo $title; ?></h3>
+        <p><?php echo $message; ?></p>
     </div>
-
 </body>
-
 </html>

@@ -1,10 +1,13 @@
-
+-- DROP DATABASE 
 DROP DATABASE image_db;
 
+-- CREATE DATABASE
 CREATE DATABASE image_db;
 
+-- USE DATABASE
 USE image_db;
 
+-- TABLE usuarios_credencial
 CREATE TABLE IF NOT EXISTS usuarios_credencial(
 	id INT NOT NULL AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL,
@@ -16,7 +19,7 @@ CREATE TABLE IF NOT EXISTS usuarios_credencial(
 	PRIMARY KEY(id)
 );
 
-
+-- TABLE aluno
 CREATE TABLE IF NOT EXISTS aluno(
    id INT NOT NULL,
    nome VARCHAR(32) NOT NULL,
@@ -26,7 +29,7 @@ CREATE TABLE IF NOT EXISTS aluno(
 );
 
 
-
+-- TABLE imagem
 CREATE TABLE IF NOT EXISTS imagem(
 	id INT NOT NULL AUTO_INCREMENT,
 	imagem_aluno LONGBLOB NOT NULL,
@@ -36,13 +39,11 @@ CREATE TABLE IF NOT EXISTS imagem(
 );
 
 
+-- INSERT ALUNO REGISTER
 INSERT INTO aluno(id, nome, phone, email)
-VALUES(1, 'Manoel Vitor', '5574999729815', 'manoelvitorsilvasantos@gmail.com');
+VALUES(1, 'test', '5599999999999', 'test@email.com');
 
-
+-- INSERT usuarios_credencial REGISTER
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
-VALUES('administrador', 'manoelvitorsilvasantos@gmail.com', 'admin', MD5('admin'), '1', CURDATE());
-
-
-
+VALUES('administrador', 'administrador@admin.com', 'admin', MD5('admin'), '1', CURDATE());
 

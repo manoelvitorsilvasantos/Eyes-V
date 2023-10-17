@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
 
 // Verifica se a sessão está vazia (usuário não autenticado)
-if(empty($_SESSION)){
-    header("location: index.php");
-    exit; // Encerra a execução do script para evitar processamento adicional.
+if (empty($_SESSION)) {
+	header("location: index.php");
+	exit; // Encerra a execução do script para evitar processamento adicional.
 }
 ?>
 
@@ -21,44 +21,47 @@ if(empty($_SESSION)){
         <a href="dashboard.php">Voltar ao Menu.</a>
     </div>
     <div class="form">
-        <form action="registrar_student.php" method="POST" class="formlogin">
-            <h3>Cadastro - Eyes-V</h3>
+        <form action="registrar.aluno.php" method="POST" class="formlogin">
+            <h3>Registrar Novo Aluno</h3>
             <br>
             <label for="codigo">Código</label>
             <input
-                placeholder="Digite o código" 
-                type="number" 
-                id="codigo" 
-                name="codigo" 
+                placeholder="Digite o código"
+                type="number"
+                id="codigo"
+                name="codigo"
                 min="1"
-                oninput="toUpper(this)" 
-                max="99999999999" 
-                maxlength="11">
+                oninput="toUpper(this)"
+                max="99999999999"
+                maxlength="11"
+                required>
 
             <label for="nome">Nome</label>
-            <input 
-                type="text" 
-                id="nome" 
+            <input
+                type="text"
+                id="nome"
                 name="nome"
-                placeholder="Digite o nome" 
-                >
+                placeholder="Digite o nome"
+                required>
 
             <label for="phone">Celular</label>
-            <input 
-                type="tel" 
-                id="cel" 
+            <input
+                type="tel"
+                id="cel"
                 name="cel"
-                maxlength="15" 
-                placeholder="(XX) XXXXX-XXXX" 
+                maxlength="15"
+                placeholder="(XX) XXXXX-XXXX"
                 oninput="mascaraTelefone(this)"
+                required
             >
-            
+
             <label for="email">E-mail</label>
-            <input 
-                type="email" 
-                id="email" 
+            <input
+                type="email"
+                id="email"
                 name="email"
-                placeholder="Digite o E-mail" 
+                placeholder="Digite o E-mail"
+                required
             >
             <br>
             <div class="btn">

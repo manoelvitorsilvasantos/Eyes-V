@@ -1,6 +1,8 @@
 <?php
 
 include 'config.php';
+include 'util.php';
+
 session_start();
 
 // Verifica se a sessão está vazia (usuário não autenticado)
@@ -10,6 +12,7 @@ if (empty($_SESSION)) {
 }
 
 function findIdStudent($id) {
+
 	global $conn; // Precisamos acessar a conexão global dentro da função.
 
 	// Consulta SQL para buscar o ID com base no email.
@@ -36,14 +39,17 @@ if (
 	empty($_POST["cel"]) ||
 	empty($_POST["email"])
 ) {
-	header("location: cad_alunos.php");
+	header("location:aluno.form.php");
 	exit; // Encerra a execução do script para evitar processamento adicional.
 }
+
+$telefone = $_POST['cel'];
+$formatter = PhoneNumberFormatter::getInstance();
 
 // Recupera os dados do formulário
 $codigo = $_POST["codigo"];
 $nome = $_POST["nome"];
-$celular = $_POST["cel"];
+$celular = $formatter->formatPhoneNumber($telefone);
 $email = $_POST["email"];
 
 $sql = "INSERT INTO aluno(id, nome, phone, email)
@@ -54,16 +60,14 @@ if (!findIdStudent($codigo)) {
 		$stmt->bind_param("isss", $codigo, $nome, $celular, $email);
 		if ($stmt->execute()) {
 			//echo "Registro inserido com sucesso!";
-			sleep(3);
 			$title = "Sucesso";
 			$msg = "Aluno cadastrado com sucesso.";
 			header("location: sucess.php?title=$title&msg=$msg");
 		} else {
 			echo "Erro ao inserir registro: " . $stmt->error;
-			sleep(3);
 			$title = "Error";
 			$msg = "Error " . $stmt->error . ",Aluno não cadastrado.";
-			$link = "cad_alunos.php";
+			$link = "aluno.form.php";
 			$link_title = "Aqui";
 			header("location: status.php?title=$title&msg=$msg&link=$link&link_title=$link_title");
 		}
@@ -73,8 +77,8 @@ if (!findIdStudent($codigo)) {
 	}
 } else {
 	$title = "Error";
-	$msg = "Error, Aluno já cadastrado no sistema.";
-	$link = "cad_alunos.php";
+	$msg = "Aluno já cadastrado no sistema.";
+	$link = "aluno.form.php";
 	$link_title = "Aqui";
 	header("location: status.php?title=$title&msg=$msg&link=$link?link_title=$link_title");
 }
