@@ -29,6 +29,6 @@ void loop()
   	meuServo.write(0);
   	digitalWrite(LED_GREEN,LOW);
   	digitalWrite(LED_RED, HIGH);
-  	delay(500);
+  	delay(1000);
   }
 }

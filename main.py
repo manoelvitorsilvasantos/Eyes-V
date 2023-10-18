@@ -6,6 +6,8 @@ from dao.mysql import DatabaseConnection
 from PIL import Image
 from io import BytesIO
 from utils.myserial import MYSerial
+from twilio.rest import Client
+import time
 
 class FaceDetectionRecognition:
     def __init__(self):
@@ -17,7 +19,7 @@ class FaceDetectionRecognition:
         self.espessura = 2
         # selecionar webcam
         #self.cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         # definir largura da tela
         self.cap.set(3, 640)
         # definir altura da tela.
@@ -35,7 +37,7 @@ class FaceDetectionRecognition:
         # lista de matriculas daquele aluno
         self.know_matricula = []
 
-        self.my_serial = MYSerial('COM6', 9600)
+        self.my_serial = MYSerial('COM7', 9600)
       
         # Crie uma instância da classe DatabaseConnection
         db = DatabaseConnection(
@@ -96,10 +98,22 @@ class FaceDetectionRecognition:
                     self.my_serial.receive(0) # envia dados serial para o arduino
                 else: # There is a student with its similiraty face.
                     aluno_cadastrado = f"{name}{matricula}"
+                    msg = f"O aluno {name} entrou na Escola."
+                    zap_number = f"whatsapp:+{celphone}"
                     cv2.rectangle(img, (left, top), (right, bottom), cor, self.espessura)
                     cv2.putText(img, "[Aluno:"+  aluno_cadastrado + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
-                    # self.api_SendSMS.sendMessage(cel, msg_txt)
                     self.my_serial.receive(1) # envia dados serial para o arduino
+                    account_sid = 'AC32215330dcd9178564d0b312cffe4531'
+                    auth_token = '28d5285f9ba6d7b99fae4058e12792a9'
+                    client = Client(account_sid, auth_token)
+                    
+                    message = client.messages.create(
+                      from_='whatsapp:+14155238886',
+                      body='O aluno chegou',
+                      to='whatsapp:+557499729815'
+                    )
+                    print(f'Mensagem enviada com sucesso, SID: {message.sid}')
+                    time.sleep(4)
             cv2.imshow('img', img)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
