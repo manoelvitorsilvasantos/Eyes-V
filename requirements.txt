@@ -1,3 +1,5 @@
+pip
+setuptools
 opencv-python
 flask
 numpy
