@@ -117,6 +117,16 @@ CREATE TABLE IF NOT EXISTS imagem(
 	FOREIGN KEY(id_aluno) REFERENCES aluno(id),
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS logs( 
+	id INT NOT NULL AUTO_INCREMENT, 
+   frequencia INT NOT NULL,
+	dt DATE, 
+	id_aluno INT NOT NULL, 
+	FOREIGN KEY(id_aluno) REFERENCES aluno(id), 
+	PRIMARY KEY(id) 
+);
+
 -- insert intro table aluno register begin
 INSERT INTO aluno(id, nome, phone, email)
 VALUES(1, 'test', '5599999999999', 'test@email.com');
