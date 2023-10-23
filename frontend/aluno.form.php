@@ -15,7 +15,7 @@
         <a href="dashboard.php">Voltar ao Menu.</a>
     </div>
     <div class="form">
-        <form  method="POST" class="formlogin">
+        <form action="registrar.aluno.php" method="POST" class="formlogin">
             <h3>Registrar Novo Aluno</h3>
             <br>
             <label for="codigo">Código</label>
