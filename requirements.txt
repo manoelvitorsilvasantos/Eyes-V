@@ -1,7 +1,9 @@
-opencv-python==4.8.0
-flask==2.3.2
-numpy==1.24.4
-face_recognition==1.2.3
-dlib==19.19.0
-mysql-connector-python=8.1.0
-pyserial==3.5
+pip
+setuptools
+opencv-python
+flask
+numpy
+face_recognition
+dlib
+mysql-connector-python
+pyserial
