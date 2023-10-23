@@ -1,11 +1,7 @@
 <?php
-session_start();
 include 'config.php';
 // Verifica se a sessão está vazia (usuário não autenticado)
-if (empty($_SESSION)) {
-	header("location: index.php");
-	exit; // Encerra a execução do script para evitar processamento adicional.
-}
+include('permission.php');
 
 function buscarIdPorEmail($email) {
 	global $conn; // Precisamos acessar a conexão global dentro da função.

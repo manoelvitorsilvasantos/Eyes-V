@@ -38,6 +38,15 @@ CREATE TABLE IF NOT EXISTS imagem(
 	PRIMARY KEY(id)
 );
 
+CREATE TABLE IF NOT EXISTS logs( 
+	id INT NOT NULL AUTO_INCREMENT, 
+   frequencia INT NOT NULL,
+	dt DATE, 
+	id_aluno INT NOT NULL, 
+	FOREIGN KEY(id_aluno) REFERENCES aluno(id), 
+	PRIMARY KEY(id) 
+);
+
 
 -- INSERT ALUNO REGISTER
 INSERT INTO aluno(id, nome, phone, email)

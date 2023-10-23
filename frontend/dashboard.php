@@ -1,8 +1,5 @@
 <?php
-session_start();
-if (empty($_SESSION)) {
-	header("location: index.php");
-}
+    include('permission.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +12,7 @@ if (empty($_SESSION)) {
 </head>
 <body>
     <nav class="menu">
-        <div class="logo">Logado:<?php echo $_SESSION['usuario']; ?></div>
+        <div class="logo"><?php echo $_SESSION['usuario'] . " logado"; ?></div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="registrar.aluno.php">Cadastra Aluno</a></li>

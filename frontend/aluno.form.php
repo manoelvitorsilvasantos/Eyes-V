@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-// Verifica se a sessão está vazia (usuário não autenticado)
-if (empty($_SESSION)) {
-	header("location: index.php");
-	exit; // Encerra a execução do script para evitar processamento adicional.
-}
+    include('permission.php');
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +15,7 @@ if (empty($_SESSION)) {
         <a href="dashboard.php">Voltar ao Menu.</a>
     </div>
     <div class="form">
-        <form action="registrar.aluno.php" method="POST" class="formlogin">
+        <form  method="POST" class="formlogin">
             <h3>Registrar Novo Aluno</h3>
             <br>
             <label for="codigo">Código</label>
@@ -75,5 +69,6 @@ if (empty($_SESSION)) {
             this.value = this.value.toUpperCase();
         });
     </script>
+    <script rel="javascript" type="text/javascript" src="./assets/js/aluno.js"></script>
 </body>
 </html>

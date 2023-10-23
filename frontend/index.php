@@ -17,12 +17,6 @@
 <body>
 	<div class="form">
 		<form action="login.php" method="POST" class="formlogin">
-			<div class="img-logo">
-				<img 
-					src="./assets/img/eyes-v_logo.png" 
-					width="52"
-				>
-			</div>
 			<h3>Login - Eyes-V</h3>
 			<br>
 			<label>Usuário</label>

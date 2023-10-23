@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Fondamento:ital@1&family=Heebo:wght@900&family=PT+Sans&family=Shadows+Into+Light+Two&display=swap');
+@import url('fonts.css');
+
 *{
 	margin:0;
 	padding:0;	
@@ -7,6 +10,7 @@ body{
 	background: linear-gradient();
 	color:#000000;
 	font-weight:bold;
+	font-family: 'Champagne-Limousines-bold';
 }
 
 .form{

@@ -1,9 +1,6 @@
 <?php
-session_start();
-include 'config.php';
-if (empty($_SESSION)) {
-	header("location: index.php");
-}
+    include('permission.php');
+    include('config.php');
 ?>
 
 <!DOCTYPE html>
