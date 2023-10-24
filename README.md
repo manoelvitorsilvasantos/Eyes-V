@@ -152,3 +152,6 @@ db = DatabaseConnect(
   "3306" # port number, by default mysql to use the port 3306
 )
 ```
+
+## QRCODE APP 
+![QRCODE](https://raw.githubusercontent.com/manoelvitorsilvasantos/Eyes-V/main/frontend/assets/img/qrcode.png)
