@@ -158,3 +158,6 @@ You must read qrcode when open whatsapp type in the chat: join arm-tree
 <p align="center">
 	<img src="https://raw.githubusercontent.com/manoelvitorsilvasantos/Eyes-V/main/frontend/assets/img/qrcode.png" width="128">
 </p>
+
+or 
+[Link Acess](https://wa.me/14155238886?text=join+arm-tree)
