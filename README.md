@@ -154,4 +154,6 @@ db = DatabaseConnect(
 ```
 
 ## QRCODE APP 
-![QRCODE](https://raw.githubusercontent.com/manoelvitorsilvasantos/Eyes-V/main/frontend/assets/img/qrcode.png)
+<p align="center">
+	<img src="https://raw.githubusercontent.com/manoelvitorsilvasantos/Eyes-V/main/frontend/assets/img/qrcode.png" width="128">
+</p>
