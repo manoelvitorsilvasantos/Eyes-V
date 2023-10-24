@@ -15,7 +15,7 @@
 		<a href="dashboard.php">Voltar ao Menu.</a>
 	</div>
     <div class="form">
-        <form action="registrar.php" method="POST" class="formlogin">
+        <form action="registrar.usuario.php" method="POST" class="formlogin">
             <h3>Cadastro - Eyes-V</h3>
             <br>
             <label for="nome">Nome</label>

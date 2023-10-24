@@ -117,6 +117,16 @@ CREATE TABLE IF NOT EXISTS imagem(
 	FOREIGN KEY(id_aluno) REFERENCES aluno(id),
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS logs( 
+	id INT NOT NULL AUTO_INCREMENT, 
+   frequencia INT NOT NULL,
+	dt DATE, 
+	id_aluno INT NOT NULL, 
+	FOREIGN KEY(id_aluno) REFERENCES aluno(id), 
+	PRIMARY KEY(id) 
+);
+
 -- insert intro table aluno register begin
 INSERT INTO aluno(id, nome, phone, email)
 VALUES(1, 'test', '5599999999999', 'test@email.com');
@@ -142,3 +152,12 @@ db = DatabaseConnect(
   "3306" # port number, by default mysql to use the port 3306
 )
 ```
+
+## QRCODE APP 
+You must read qrcode when open whatsapp type in the chat: join arm-tree
+<p align="center">
+	<img src="https://raw.githubusercontent.com/manoelvitorsilvasantos/Eyes-V/main/frontend/assets/img/qrcode.png" width="128">
+</p>
+
+or 
+[Link Acess](https://wa.me/14155238886?text=join+arm-tree)
