@@ -103,17 +103,6 @@ class FaceDetectionRecognition:
                     cv2.rectangle(img, (left, top), (right, bottom), cor, self.espessura)
                     cv2.putText(img, "[Aluno:"+  aluno_cadastrado + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
                     self.my_serial.receive(1) # envia dados serial para o arduino
-                    account_sid = 'AC32215330dcd9178564d0b312cffe4531'
-                    auth_token = '28d5285f9ba6d7b99fae4058e12792a9'
-                    client = Client(account_sid, auth_token)
-                    
-                    message = client.messages.create(
-                      from_='whatsapp:+14155238886',
-                      body='O aluno chegou',
-                      to='whatsapp:+557499729815'
-                    )
-                    print(f'Mensagem enviada com sucesso, SID: {message.sid}')
-                    time.sleep(4)
             cv2.imshow('img', img)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
