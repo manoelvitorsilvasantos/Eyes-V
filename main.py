@@ -8,6 +8,7 @@ from io import BytesIO
 from utils.myserial import MYSerial
 from twilio.rest import Client
 import time
+import requests
 
 class FaceDetectionRecognition:
     def __init__(self):
@@ -99,10 +100,22 @@ class FaceDetectionRecognition:
                 else: # There is a student with its similiraty face.
                     aluno_cadastrado = f"{name}{matricula}"
                     msg = f"O aluno {name} entrou na Escola."
-                    zap_number = f"whatsapp:+{celphone}"
                     cv2.rectangle(img, (left, top), (right, bottom), cor, self.espessura)
                     cv2.putText(img, "[Aluno:"+  aluno_cadastrado + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
                     self.my_serial.receive(1) # envia dados serial para o arduino
+                    url = "http://127.0.0.1:8000/send_message"
+                    data = {
+                        "name": name,
+                        "phone":celphone,
+                        "on_school":False # aluno entrou
+                    }
+                    response = requests.post(url, json=data)
+                    if response.status_code == 200:
+                        print("Mensagem Enviada para os Responsável.")
+                        print(response.json())
+                    else:
+                        print("Houve um erro: ", response.status_code)
+                        print(response.text)
             cv2.imshow('img', img)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):

@@ -7,3 +7,4 @@ face_recognition
 dlib
 mysql-connector-python
 pyserial
+requests
