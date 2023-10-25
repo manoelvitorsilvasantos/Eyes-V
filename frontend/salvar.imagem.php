@@ -17,7 +17,9 @@
     </div>
     <div class="form">
         <form action="upload.php" method="POST" enctype="multipart/form-data" class="formlogin">
-            <h3>Cadastro - Eyes-V</h3>
+            <div class="form-header">
+                <h3>Registrar Foto</h3>
+            </div>
             <br>
             <label for="email">E-mail do Aluno</label>
             <input

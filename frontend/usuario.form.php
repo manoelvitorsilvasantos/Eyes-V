@@ -16,7 +16,9 @@
 	</div>
     <div class="form">
         <form action="registrar.usuario.php" method="POST" class="formlogin">
-            <h3>Cadastro - Eyes-V</h3>
+            <div class="form-header">
+                <h3>Registrar Usuário</h3>
+            </div>
             <br>
             <label for="nome">Nome</label>
             <input 
