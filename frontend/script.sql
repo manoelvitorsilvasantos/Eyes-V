@@ -49,10 +49,19 @@ CREATE TABLE IF NOT EXISTS logs(
 
 
 -- INSERT ALUNO REGISTER
+-- obs. numero sem o nono digito.
 INSERT INTO aluno(id, nome, phone, email)
-VALUES(1, 'mvictor', '557499729815', 'manoelvitorsilvasantos@gmail.com');
+VALUES(1, 'beto silva', '<numero_celular>', 'betosilva@gmail.com');
 
 -- INSERT usuarios_credencial REGISTER
+-- admin
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
-VALUES('mvictor', 'manoelvitorsilvasantos@gmail.com', 'mvictor', MD5('mvictor'), '1', CURDATE());
+VALUES('beto sila', 'betosilva@gmail.com', 'admin', MD5('admin'), '1', CURDATE());
 
+-- monitor
+INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
+VALUES('jonh kennedy', 'jonhkennedy@gmail.com', 'jonh', MD5('monitor'), '3', CURDATE());
+
+-- inserir funcionario
+INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
+VALUES('peter pan', 'peterpan@gmail.com', 'peter', MD5('funcionario'), '2', CURDATE());
