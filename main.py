@@ -3,12 +3,13 @@ import face_recognition
 import threading
 import numpy as np
 from dao.mysql import DatabaseConnection
+from datetime import datetime, time
 from PIL import Image
 from io import BytesIO
 from utils.myserial import MYSerial
 from twilio.rest import Client
-import time
 import requests
+
 
 class FaceDetectionRecognition:
     def __init__(self):
@@ -37,6 +38,8 @@ class FaceDetectionRecognition:
         self.know_phones = []
         # lista de matriculas daquele aluno
         self.know_matricula = []
+        self.used_sessions = {}
+        self.session = requests.Session()
 
         self.my_serial = MYSerial('COM7', 9600)
       
@@ -58,6 +61,7 @@ class FaceDetectionRecognition:
             matricula, name, phone, _, image_binary = record
             # Converta os dados binários em um array de bytes
             image_bytes = bytearray(image_binary)
+            
 
             # Converta os bytes em um objeto de imagem Pillow
             image_pil = Image.open(BytesIO(image_bytes))
@@ -69,6 +73,7 @@ class FaceDetectionRecognition:
                 image_array = cv2.cvtColor(image_array, cv2.COLOR_BGR2GRAY)
 
             face_encoding = face_recognition.face_encodings(image_array)[0]
+
             self.known_faces.append(face_encoding)
             self.known_names.append(name)  # Use o nome do registro
             self.know_phones.append(phone) # Use o phone de registro
@@ -79,6 +84,7 @@ class FaceDetectionRecognition:
         while True:
             ret, img = self.cap.read()
             rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
 
             face_locations = face_recognition.face_locations(rgb_img)
             face_encodings = face_recognition.face_encodings(rgb_img, face_locations)
@@ -95,30 +101,58 @@ class FaceDetectionRecognition:
                 # Verification student in the database.
                 if name == "Desconhecido": # student dont found.
                     #cv2.rectangle(img, (left, top), (right, bottom), cor, self.espessura)
-                    #cv2.putText(img, "["+ name + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
+                    #aqcv2.putText(img, "["+ name + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
                     self.my_serial.receive(0) # envia dados serial para o arduino
                 else: # There is a student with its similiraty face.
-                    aluno_cadastrado = f"{name}"
                     cv2.rectangle(img, (left, top), (right, bottom), cor, self.espessura)
-                    cv2.putText(img, "[Aluno:"+  aluno_cadastrado + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
+                    cv2.putText(img, "[Aluno:"+  name + "]", (left, top - 10), self.font, self.tamanho, cor, self.espessura, cv2.LINE_AA)
                     self.my_serial.receive(1) # envia dados serial para o arduino
                     url = "http://127.0.0.1:8000/send_message"
-                    data = {
-                        "name": name,
-                        "phone":celphone,
-                        "on_school":False # aluno entrou
-                    }
-                    response = requests.post(url, json=data)
-                    if response.status_code == 200:
-                        print("Mensagem Enviada para os Responsável.")
-                        print(response.json())
-                    else:
-                        print("Houve um erro: ", response.status_code)
-                        print(response.text)
+                    resultado = self.get_user_session(url, name, celphone)
+                    print(resultado)
             cv2.imshow('img', img)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+        self.session.close()
+
+    def get_user_session(self, url, name_student, phone_student):
+        
+        data_hora_atual = datetime.now()
+        hora_atual = data_hora_atual.time()
+        #entrada
+        start_time_enter = time(17,30) # horario de entrada
+        end_time_enter = time(18,30)
+        #saida 
+        start_time_out = time(18,31) # horario de saida.
+        end_time_out = time(22,0)
+
+        if name_student in  self.used_sessions:
+            return f"A sessão para {name_student} já foi iniciada anteriomente."
+        else:
+            data = {
+                "name":name_student,
+                "phone":phone_student,
+            }
+
+            if start_time_enter <= hora_atual <= end_time_enter:
+                data["on_school"] = False
+            elif start_time_out <= hora_atual <= end_time_out:
+                data["on_school"] = True
+            else:
+                return "Fora do horário permitido para enviar a mensagem."
+
+            response = self.session.post(url, json=data)
+            self.used_sessions[name_student] = self.session
+
+            if response.status_code == 200:
+                print("Mensagem enviada com sucesso.")
+                print(response.json())
+            else:
+                print("Houve um erro: ", response.status_code)
+                print(response.text)
+
+
 
     def start(self):
         # make threas, it will work very great system.
