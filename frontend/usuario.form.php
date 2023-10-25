@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro - Eyes-V</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link href="./assets/img/logo.jpg" rel="shortcut icon" type="image/jpeg">
 </head>
 <body>
 	<div class="link">

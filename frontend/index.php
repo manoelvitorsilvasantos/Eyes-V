@@ -13,6 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link href="./assets/img/logo.jpg" rel="shortcut icon" type="image/jpeg">
 	<style type="text/css" media="screen">
 		input[type=text]{
 			text-align:left;

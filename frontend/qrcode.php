@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="viewport=device-width,initial-scale=1.0">
 		<title>QRCODE Scan -  Whatsapp API</title>
+		<link href="./assets/img/logo.jpg" rel="shortcut icon" type="image/jpeg">
 		<style type="text/css">
 			*{
 				box-sizing: border-box;
