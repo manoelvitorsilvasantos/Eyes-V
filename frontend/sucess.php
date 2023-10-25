@@ -5,16 +5,14 @@ include('permission.php');
 $title = null;
 $message = null;
 
-if (!empty($_GET['title']) && (!empty($_GET['message']))) {
+if (!empty($_GET['title']) && (!empty($_GET['msg']))) {
 	$title = $_GET['title'];
-	$message = $_GET['message'];
+	$message = $_GET['msg'];
 } else {
 	header("location: dashboard.php");
 	exit;
 }
 
-$title = $_GET['title'];
-$message = $_GET['message'];
 ?>
 <!DOCTYPE html>
 <html>
