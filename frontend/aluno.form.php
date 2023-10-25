@@ -16,7 +16,9 @@
     </div>
     <div class="form">
         <form  action="registrar.aluno.php" method="POST" class="formlogin">
-            <h3>Registrar Novo Aluno</h3>
+            <div class="form-header">
+                <h3>Registrar Novo Aluno</h3>
+            </div>
             <br>
             <label for="codigo">Código</label>
             <input

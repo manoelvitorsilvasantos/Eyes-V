@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manoel Vitor | Fullstack Developed</title>
+  <title>Eyes-V | Reconhecimento Facial</title>
   <link rel="stylesheet" href="./assets/css/dashboard.css">
   <link href="./assets/img/logo.jpg" rel="shortcut icon" type="image/jpeg">
   <style>

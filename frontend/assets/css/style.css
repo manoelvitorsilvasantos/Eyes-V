@@ -75,7 +75,7 @@ input[type=password]{
 }
 
 h3{
-	color:#fff;
+	color:#000;
 	text-align:center;
 }
 
@@ -142,6 +142,13 @@ button:hover{
 
 .form-img img{
 	border-radius:5px;
+}
+
+.form-header{
+	border-radius:5px;
+	background: #dddddd;
+	padding:12px;
+	color:#000;
 }
 
 
