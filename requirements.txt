@@ -8,3 +8,5 @@ dlib
 mysql-connector-python
 pyserial
 requests
+fastapi
+uvicorn
