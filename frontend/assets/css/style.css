@@ -1,17 +1,166 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Fondamento:ital@1&family=Heebo:wght@900&family=PT+Sans&family=Shadows+Into+Light+Two&display=swap');
 @import url('fonts.css');
 
+:root{
+	--bg-gradient:linear-gradient(to right, #BB2649,#BE3455);
+	--border-inputs: #8d354a;
+	--form-bg:#BE3455;
+	--form-color:#fff;
+	--input-border-size:2px;
+	--font-inputs:bold;
+	--font-familia:Arial;
+	--button-bg-on:#99282a;
+	--button-bg-off:#ffffff;
+
+	--button-color-on:#ffffff;
+	--button-color-off:#99282a;
+
+	--form-alert-bg:#ffffff;
+	--form-alert-color:#000;
+}
+
 *{
+	box-sizing: border-box;
 	margin:0;
 	padding:0;	
 }
 
+html{
+	background:var(--bg-gradient);
+}
+
 body{
-	background: linear-gradient();
 	color:#000000;
 	font-weight:bold;
-	font-family: 'Champagne-Limousines-bold';
+	font-family: var(--font-familia);
 }
+
+.form{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	align-content:center;
+}
+
+.form p{
+	color:#fff;
+}
+
+.link a{
+	padding:12px;
+	margin:10px;
+	text-decoration:none;
+	color:#fff;
+}
+
+.formlogin{
+	display:flex;
+	flex-direction:column;
+	margin-top:20px;
+	padding:10px;
+}
+
+.formlogin 
+input[type=number],
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password]{
+	border-radius:5px;
+	border:var(--input-border-size) solid  var(--border-inputs);
+	padding:12px;
+	font-size:18px;
+	font-weight:bold;
+}
+
+h3{
+	color:#fff;
+	text-align:center;
+}
+
+.formlogin label{
+	color:#fff;
+	padding:12px;
+	font-size:20px;
+}
+
+.formlogin button{
+	padding:16px;
+	font-size:20px;
+}
+
+.formlogin 
+button{
+	background:var(--button-bg-off);
+	color:var(--button-color-off);
+	border:1px solid var(--button-bg-off);
+	border-radius:5px;
+	padding:8px;
+	font-weight:bold;
+	width:300px;
+}
+
+.formlogin 
+button:hover{
+	background:var(--button-bg-on);
+	color:var(--button-color-on);
+	border:1px solid transparent;
+	border-radius:5px;
+	padding:8px;
+	font-weight:bold;
+	width:300px;
+}
+
+.form-alert h3{
+	color:#000;
+	padding:12px;
+	font-size:20px;
+}
+
+.form-alert p{
+	font-size:18px;
+	padding:12px;
+}
+
+.form-alert{
+  background: var(--form-alert-bg);
+  border: 1px solid #B8B5B5;
+  border-radius: 5px;
+  margin: 10px;
+  padding-left: 10px;
+  text-align:center;
+}
+
+.form-img{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-content:center;
+	align-items:center;
+}
+
+.form-img img{
+	border-radius:5px;
+}
+
+
+.ls-custom-select{
+	padding:12px;
+}
+
+.ls-select{
+	border-radius:5px;
+	background:#fff;
+	color:#000;
+	font-weight:bold;
+	font-size:24px;
+	padding:8px;
+	text-align:center;
+	width:100%;
+}
+
+/*
 
 .form{
 	display:flex;
@@ -147,20 +296,4 @@ button:link{
 	width:150px;
 }
 
-@media (max-width:720px){
-
-	.form{
-		display:inline-block;
-		margin:5px;
-		margin-top:100px;
-	}
-
-	.formlogin input{
-		padding:15px;
-	}
-
-	#login{
-		padding:12px;
-	}
-}
-
+*/

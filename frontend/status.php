@@ -17,6 +17,7 @@
         $link_title = $_GET['link_title'];
     } else {
         header("location: dashboard.php");
+        exit;
     }
 ?>
 <!DOCTYPE html>

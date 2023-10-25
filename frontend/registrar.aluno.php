@@ -3,26 +3,11 @@
 include('permission.php');
 include('config.php');
 include('util.php');
+include_once('verificador.php');
 
-function findIdStudent($id) {
 
-	global $conn; // Precisamos acessar a conexão global dentro da função.
 
-	// Consulta SQL para buscar o ID com base no email.
-	$sql = "SELECT id FROM aluno WHERE id = ?"; // Substitua "usuarios" pelo nome da sua tabela.
-
-	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("i", $id); // "s" indica que o email é uma string.
-	$stmt->execute();
-
-	$resultado = $stmt->get_result();
-
-	if ($resultado->num_rows > 0) {
-		return true;
-	} else {
-		return false;
-	}
-}
+$verificador = new Verificador();
 
 // Verifica se o formulário foi submetido e se todos os campos estão preenchidos
 if (
@@ -48,7 +33,10 @@ $email = $_POST["email"];
 $sql = "INSERT INTO aluno(id, nome, phone, email)
 			VALUES(?, ?, ?, ?)";
 
-if (!findIdStudent($codigo)) {
+$resultado_id = $verificador->idExist($codigo, $conn);
+$resultado_email = $verificador->emailExist($email, $conn);
+
+if ($resultado_id == true && $resultado_email == true) {
 	if ($stmt = $conn->prepare($sql)) {
 		$stmt->bind_param("isss", $codigo, $nome, $celular, $email);
 		if ($stmt->execute()) {

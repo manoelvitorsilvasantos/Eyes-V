@@ -50,9 +50,9 @@ CREATE TABLE IF NOT EXISTS logs(
 
 -- INSERT ALUNO REGISTER
 INSERT INTO aluno(id, nome, phone, email)
-VALUES(1, 'test', '5599999999999', 'test@email.com');
+VALUES(1, 'mvictor', '557499729815', 'manoelvitorsilvasantos@gmail.com');
 
 -- INSERT usuarios_credencial REGISTER
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
-VALUES('administrador', 'administrador@admin.com', 'admin', MD5('admin'), '1', CURDATE());
+VALUES('mvictor', 'manoelvitorsilvasantos@gmail.com', 'mvictor', MD5('mvictor'), '1', CURDATE());
 

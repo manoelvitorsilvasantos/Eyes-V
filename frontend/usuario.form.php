@@ -51,11 +51,13 @@
                 required>
             
             <label for="tipo">Tipo</label>
-            <select id="tipo" name="tipo">
-                <option value="1">Administrador</option>
-                <option value="2">Monitor</option>
-                <option value="3">Funcionário</option>
-            </select>
+            <div class="ls-custom-select">
+                <select class="ls-select" id="tipo" name="tipo">
+                    <option value="1">Administrador</option>
+                    <option value="2">Monitor</option>
+                    <option value="3">Funcionário</option>
+                </select>
+            </div>
             <br>
             <div class="btn">
                 <button type="submit" name="login" id="login">Cadastrar</button>

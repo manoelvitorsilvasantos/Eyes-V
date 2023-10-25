@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!empty($_SESSION)) {
+		header("location: dashboard.php");
+		exit; // Encerra a execução do script para evitar processamento adicional.
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +24,10 @@
 <body>
 	<div class="form">
 		<form action="login.php" method="POST" class="formlogin">
+			<div class="form-img">
+				<img src="./assets/img/logo.jpg" width="82">
+			</div>
+			<br>
 			<h3>Login - Eyes-V</h3>
 			<br>
 			<label>Usuário</label>
@@ -37,6 +48,7 @@
 			<div class="btn">
 				<button type="submit" name="login" id="login">LOGAR</button>
 			</div>
+			<bR>
 		</form>
 	</div>
 </body>

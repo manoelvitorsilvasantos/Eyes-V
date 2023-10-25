@@ -15,7 +15,7 @@
         <a href="dashboard.php">Voltar ao Menu.</a>
     </div>
     <div class="form">
-        <form action="registrar.aluno.php" method="POST" class="formlogin">
+        <form  action="registrar.aluno.php" method="POST" class="formlogin">
             <h3>Registrar Novo Aluno</h3>
             <br>
             <label for="codigo">Código</label>
@@ -26,7 +26,7 @@
                 name="codigo"
                 min="1"
                 oninput="toUpper(this)"
-                max="99999999999"
+                max="9999999999"
                 maxlength="11"
                 required>
 
@@ -43,8 +43,8 @@
                 type="tel"
                 id="cel"
                 name="cel"
-                maxlength="15"
-                placeholder="(XX) XXXXX-XXXX"
+                maxlength="14"
+                placeholder="(XX) XXXX-XXXX"
                 oninput="mascaraTelefone(this)"
                 required
             >
@@ -61,6 +61,7 @@
             <div class="btn">
                 <button type="submit" name="login" id="login">Cadastrar</button>
             </div>
+            <bR>
         </form>
     </div>
     <script type="text/javascript" src="./assets/js/mascara.js">

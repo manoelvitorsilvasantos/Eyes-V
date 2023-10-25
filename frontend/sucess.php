@@ -26,7 +26,7 @@ if (!empty($_GET['title']) && (!empty($_GET['msg']))) {
     <div class="link">
         <a href="dashboard.php">Voltar ao Menu.</a>
     </div>
-    <div class="form">
+    <div class="form-alert">
         <h3><?php echo $title; ?></h3>
         <p><?php echo $message; ?></p>
     </div>
