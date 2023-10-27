@@ -102,13 +102,16 @@ CREATE TABLE IF NOT EXISTS usuarios_credencial(
 	PRIMARY KEY(id)
 );
 -- create table aluno if not exist
+-- TABLE aluno
 CREATE TABLE IF NOT EXISTS aluno(
    id INT NOT NULL,
    nome VARCHAR(32) NOT NULL,
    phone VARCHAR(15) NOT NULL,
    email VARCHAR(150) NOT NULL,
+   status TINYINT(1) NOT NULL DEFAULT 0,
    PRIMARY KEY(id)
 );
+
 -- create table imagem if not exist
 CREATE TABLE IF NOT EXISTS imagem(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -129,7 +132,7 @@ CREATE TABLE IF NOT EXISTS logs(
 
 -- insert intro table aluno register begin
 INSERT INTO aluno(id, nome, phone, email)
-VALUES(1, 'test', '5599999999999', 'test@email.com');
+VALUES(1, 'test', '5599999999999', 'test@email.com', 0);
 -- insert intro table usuario_credencial register begin
 INSERT INTO usuarios_credencial(nome, email, usuario, senha, tipo, data)
 VALUES('administrador', 'administrador@admin.com', 'admin', MD5('admin'), '1', CURDATE());
