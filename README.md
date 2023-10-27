@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+# Eyes-V
+## Projeto Inovação 
+=======
 # Eyes-V Project - Verena Eyes v1.0.0
+>>>>>>> 4fcc5e8d07ac500a76c17901984137c47a697c01
 
 Equip development:
 * [Felipe](https://github.com/Felipegdecastro)
@@ -19,8 +24,13 @@ To clone this repository to your local machine, follow the steps bellow:
 
 ```bash
 cd C:/users/{your_username}/Documents/
+<<<<<<< HEAD
+git clone https://github.com/manoelvitorsilvasantos/Eyes-V.git
+cd C:/users/{your_username}/Documents/Eyes-V
+=======
 git clone https://github.com/manoelvitorsilvasantos/Eyes-V
 cd C:/users/{your_username}/Documents/Eyes-V
+>>>>>>> 4fcc5e8d07ac500a76c17901984137c47a697c01
 ```
 
 ## How to install dependences (dlib)
@@ -159,5 +169,7 @@ You must read qrcode when open whatsapp type in the chat: join arm-tree
 	<img src="https://raw.githubusercontent.com/manoelvitorsilvasantos/Eyes-V/main/frontend/assets/img/qrcode.png" width="128">
 </p>
 
+<div align="center">
 or 
 [Link Acess](https://wa.me/14155238886?text=join+arm-tree)
+</div>
