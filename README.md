@@ -170,6 +170,5 @@ You must read qrcode when open whatsapp type in the chat: join arm-tree
 </p>
 
 <div align="center">
-or 
-[Link Acess](https://wa.me/14155238886?text=join+arm-tree)
+	<a href="https://wa.me/14155238886?text=join+arm-tree">Link Acesso</a>
 </div>
