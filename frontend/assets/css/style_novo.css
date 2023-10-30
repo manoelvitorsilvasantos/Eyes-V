@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to top, #014871 0%, #07e676 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.outer {
+  display: flex;
+}
+
+.form-container {
+  width: 80%;
+  padding: 20px;
+  background-color: #f50a0a; /* Alterado para branco */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  margin: auto;
+}
+
+.text {
+  flex: 1;
+  padding: 20px;
+  text-align: justify;
+}
+
+.text p, h1 {
+  color: #014871; /* Alterado para azul */
+}
+
+.form {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Os campos de entrada estarão dispostos verticalmente */
+  justify-content: center; /* Centraliza verticalmente os campos de entrada */
+  align-items: center; /* Centraliza horizontalmente os campos de entrada */
+}
+
+.formlogin h3 {
+  color: #014871; /* Alterado para azul */
+  text-align: center;
+  display: block;
+  margin-bottom: 20px; /* Adicione margem entre o título e os campos */
+}
+
+.formlogin label {
+  color: #014871; /* Alterado para azul */
+  text-align: left;
+  display: block;
+}
+
+.formlogin label.senha-label {
+  margin-bottom: 10px; /* Adiciona espaçamento entre o label e o input da senha */
+}
+
+.formlogin input[type="text"],
+.formlogin input[type="password"] {
+  background-color: white; /* Alterado para branco */
+  color: #000;
+  width: 300px; /* Defina a largura desejada para os campos */
+  height: 25px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #014871;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: height 0.3s;
+}
+
+.formlogin input[type="text"]:focus,
+.formlogin input[type="password"]:focus {
+  border: 2px solid #014871;
+  height: 50px;
+}
+
+.btn, button {
+  text-align: center;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #014871; /* Cor normal do botão */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 300px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Adiciona uma transição suave à cor de fundo */
+}
+
+button:hover {
+  background-color: #026299; /* Cor do botão quando o cursor passa sobre ele */
+}

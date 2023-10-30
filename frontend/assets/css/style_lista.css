@@ -1,0 +1,144 @@
+/* Estilos Gerais */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to top, #014871 0%, #D7EDE2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .centered-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+  }
+  
+  #header {
+    text-align: center;
+  }
+  
+  #logo img {
+    width: 52px;
+  }
+  
+  #nav {
+    text-align: center;
+  }
+  
+  #menu {
+    list-style: none;
+    display: flex;
+  }
+  
+  #menu li {
+    margin: 0 10px;
+    transition: transform 0.2s;
+  }
+  
+  #menu li:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Estilos para a tabela */
+  .content {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .rTable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  
+  .rTable td, .rTable th {
+    padding: 15px;
+  }
+  
+  .rTable th {
+    background-color: #014871;
+    color: #fff;
+  }
+  
+  .rTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #footer {
+    text-align: center;
+    background-color: #014871;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  #footer a {
+    color: #fff;
+  }
+  
+  #footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos específicos para a tabela e o menu */
+  .rTable th {
+    background-color: #014871;
+    color: #fff;
+    padding: 15px;
+  }
+  
+  #menu {
+    list-style: none;
+    display: flex;
+  }
+  
+  #menu li {
+    margin: 0 10px;
+    transition: transform 0.2s;
+  }
+  
+  #menu li:hover {
+    transform: scale(1.1);
+  }
+
+  /* Adicione essas regras ao seu arquivo style_lista.css */
+
+.rTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+  }
+  
+  .rTable th, .rTable td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .rTable thead {
+    background-color: #014871;
+    color: white;
+  }
+  
+  .rTable tbody tr:nth-child(odd) {
+    background-color: #D7EDE2;
+  }
+  
+  .rTable tbody tr:nth-child(even) {
+    background-color: #E1F2E9;
+  }
+  
+  .rTable tbody tr:hover {
+    background-color: #026299;
+    color: white;
+    cursor: pointer;
+  }
+  

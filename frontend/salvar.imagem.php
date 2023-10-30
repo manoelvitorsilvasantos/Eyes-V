@@ -17,6 +17,8 @@
     <div class="link">
         <a href="dashboard.php">Voltar ao Menu.</a>
     </div>
+<div class="outer">
+	<div class="form-container">
     <div class="form">
         <form action="upload.php" method="POST" enctype="multipart/form-data" class="formlogin">
             <div class="form-header">
@@ -44,6 +46,8 @@
                 <button type="submit" name="login" id="login">Salvar</button>
             </div>
         </form>
+    </div>
+    </div>
     </div>
     <script type="text/javascript" src="./assets/js/mascara.js">
         var nome = document.getElementById("nome");

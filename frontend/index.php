@@ -12,7 +12,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/novo.css">
 	<link href="./assets/img/logo.jpg" rel="shortcut icon" type="image/jpeg">
 	<style type="text/css" media="screen">
 		input[type=text]{
@@ -24,23 +24,25 @@
 	</style>
 </head>
 <body>
-	<div class="form">
-		<form action="login.php" method="POST" class="formlogin">
-			<div class="form-img">
-				<img src="./assets/img/logo.jpg" width="82">
-			</div>
-			<br>
-			<h3>Login - Eyes-V</h3>
-			<br>
-			<label>Usuário</label>
-			<input 
-				type="text" 
-				id="usuario" 
-				name="usuario"
-				placeholder="Digite o nome de usuário" 
-				required>
-			<label>Senha</label>
-			<input 
+<div class="outer">
+	<div class="form-container">
+		<div class="form">
+			<form action="login.php" method="POST" class="formlogin">
+				<div class="form-img">
+					<img src="./assets/img/logo.jpg" width="82">
+				</div>
+				<br>
+				<h3>Login - Eyes-V</h3>
+				<br>
+				<label>Usuário</label>
+				<input 
+					type="text" 
+					id="usuario" 
+					name="usuario"
+					placeholder="Digite o nome de usuário" 
+					required>
+				<label>Senha</label>
+				<input 
 				type="password" 
 				id="senha" 
 				name="senha"
@@ -53,5 +55,7 @@
 			<bR>
 		</form>
 	</div>
+</div>
+	</diSv>
 </body>
 </html>

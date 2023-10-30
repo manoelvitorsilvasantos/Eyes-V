@@ -2,7 +2,7 @@
 @import url('fonts.css');
 
 :root{
-	--bg-gradient:linear-gradient(to right, #014871 0%, #f4f4f4 100%);
+	--bg-gradient:linear-gradient(to right, #014871 40%, #c2c2c2 90%);
 	--border-inputs: #000000;
 	--form-bg:#3449be;
 	--form-color:#fff;
@@ -49,7 +49,9 @@ body{
 }
 
 .link a{
-
+	background-image: url('/assets/img/pngwing.com.png');
+	background-repeat: no-repeat;
+	background-position: center;
 	padding:12px;
 	margin:10px;
 	text-decoration:none;
@@ -60,15 +62,16 @@ body{
 .outer {
 	display: flex;
 	place-items: center;
-	
+	align-items: center;
   }
 
 .form-container {
-	background-color: #fff; /* Alterado para branco */
+	background-color: #ffffffa3; /* Alterado para branco */
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	display: flex;
 	margin: auto;
+	align-items: center;
 	
 }
 .form {
@@ -79,7 +82,6 @@ body{
 	justify-content: center; /* Centraliza verticalmente os campos de entrada */
 	align-items: center; /* Centraliza horizontalmente os campos de entrada */
 }
-
 
 
 .formlogin{

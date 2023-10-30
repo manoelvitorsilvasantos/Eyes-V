@@ -1,0 +1,101 @@
+/* Estilos Gerais */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to top, #014871 0%, #D7EDE2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.centered-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.form-container {
+  text-align: center;
+}
+
+.link {
+  text-align: left;
+  margin: 20px;
+  
+}
+
+.formlogin h3 {
+  color: #014871;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formlogin label {
+  color: #014871;
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.formlogin .form-header {
+  text-align: center;
+}
+
+.formlogin .form-header h3 {
+  font-size: 24px;
+}
+
+.formlogin input[type="text"],
+.formlogin input[type="password"],
+.formlogin input[type="tel"],
+.formlogin input[type="email"],
+.formlogin input[type="number"] {
+  background-color: white;
+  color: #000;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #014871;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: height 0.3s;
+  height: 20px;
+}
+
+.formlogin input[type="text"]:focus,
+.formlogin input[type="password"]:focus,
+.formlogin input[type="tel"]:focus,
+.formlogin input[type="email"]:focus,
+.formlogin input[type="number"]:focus {
+  border: 2px solid #014871;
+  height: 50px;
+}
+
+.btn, button {
+  text-align: center;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #014871;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #026299;
+}

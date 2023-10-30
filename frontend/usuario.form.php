@@ -9,14 +9,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro - Eyes-V</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/novo.css">
     <link href="./assets/img/logo.jpg" rel="shortcut icon" type="image/jpeg">
 </head>
 <body>
 	<div class="link">
 		<a href="dashboard.php">Voltar ao Menu.</a>
 	</div>
-    <div class="form">
+
+
+    <div class="outer">
+	<div class="form-container">
+        <div class="form">
         <form action="registrar.usuario.php" method="POST" class="formlogin">
             <div class="form-header">
                 <h3>Registrar Usuário</h3>
@@ -67,6 +71,8 @@
                 <button type="submit" name="login" id="login">Cadastrar</button>
             </div>
         </form>
+</div>
     </div>
+        </div>
 </body>
 </html>

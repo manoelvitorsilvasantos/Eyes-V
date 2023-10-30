@@ -9,38 +9,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro - Eyes-V</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/novo.css">
     <link href="./assets/img/logo.jpg" rel="shortcut icon" type="image/jpeg">
 </head>
 <body>
     <div class="link">
-        <a href="dashboard.php">Voltar ao Menu.</a>
+        <a href="dashboard.php" >Voltar ao Menu.</a>
     </div>
-    <div class="form">
-        <form  action="registrar.aluno.php" method="POST" class="formlogin">
-            <div class="form-header">
-                <h3>Registrar Novo Aluno</h3>
-            </div>
-            <br>
-            <label for="codigo">Código</label>
-            <input
-                placeholder="Digite o código"
-                type="number"
-                id="codigo"
-                name="codigo"
-                min="1"
-                oninput="toUpper(this)"
-                max="9999999999"
-                maxlength="11"
-                required>
+<div class="outer">
+	<div class="form-container">
+        <div class="form">
+            <form  action="registrar.aluno.php" method="POST" class="formlogin">
+                <div class="form-header">
+                    <h3>Registrar Novo Aluno</h3>
+                </div>
+                <br>
+                <label for="codigo">Código</label>
+                <input
+                    placeholder="Digite o código"
+                    type="number"
+                    id="codigo"
+                    name="codigo"
+                    min="1"
+                    oninput="toUpper(this)"
+                    max="9999999999"
+                    maxlength="11"
+                    required>
 
-            <label for="nome">Nome</label>
-            <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Digite o nome"
-                required>
+                <label for="nome">Nome</label>
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Digite o nome"
+                    required>
 
             <label for="phone">Celular</label>
             <input
@@ -67,7 +69,9 @@
             </div>
             <bR>
         </form>
+</div>
     </div>
+        </div>
     <script type="text/javascript" src="./assets/js/mascara.js">
         var nome = document.getElementById("nome");
         nome.addEventListener("input", function(){

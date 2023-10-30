@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+    height: 400px; /* Defina a altura desejada */
+    background-color: #cab4d3; /* Cor de fundo branca */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .form-img img {
+    width: 82px;
+  }
+  
+  .formlogin h3 {
+    color: #b224ef; /* Cor correspondente à paleta do gradiente */
+    text-align: center;
+    display: block;
+    margin-bottom: 20px; /* Adicione margem entre o título e os campos */
+  }
+  
+  .formlogin label {
+    color: #b224ef; /* Cor correspondente à paleta do gradiente */
+    margin-right: 320px;
+    display: block;
+  }
+  
+  /* Remover a cor de fundo padrão dos campos de entrada */
+  .formlogin input[type="text"] {
+    background-color: #dda9f3;
+    color: #000; /* Cor do texto preto */ 
+    width: 400px; /* Largura desejada para o campo de senha */
+    height: 30px; /* Defina a altura desejada para os campos */
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #b224ef; /* Cor da borda roxa (cor correspondente à paleta do gradiente) */
+    border-radius: 5px;
+    margin-bottom: 20px; /* Adicione margem entre os campos */
+    outline: none;
+    transition: height 0.3s;
+  }
+  
+  .formlogin input[type="password"] {
+    background-color: #dda9f3;
+    color: #000; /* Cor do texto preto */
+    width: 400px; /* Largura desejada para o campo de senha */
+    height: 30px; /* Defina a altura desejada para os campos */
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #b224ef; /* Cor da borda roxa (cor correspondente à paleta do gradiente) */
+    border-radius: 5px;
+    margin-bottom: 20px; /* Adicione margem entre os campos */
+    outline: none;
+    transition: height 0.3s;
+  }
+
+  .formlogin input[type="text"]:focus,
+.formlogin input[type="password"]:focus {
+  /* Define um estilo para a borda de foco quando o campo está ativo (clicado) */
+  border: 2px solid #b224ef; /* Cor da borda roxa de foco (cor correspondente à paleta do gradiente) */
+  height: 50px; /* Aumenta a altura quando o campo está em foco */
+}
+  
+  .btn, button {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  button {
+    background-color: #b224ef; /* Cor correspondente à paleta do gradiente */
+    color: #fff; /* Cor de texto branca */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
